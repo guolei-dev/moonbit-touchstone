@@ -1,0 +1,27 @@
+name: verify
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  check:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: moonbitlang/setup-moonbit@v1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - run: moon fmt --check
+      - run: moon check --target all
+      - run: moon test --target js
+      - run: moon test --target wasm-gc
+      - run: moon build --target js --release
+      - run: moon info
+      - run: git diff --exit-code -- '*.mbti'
+      - run: node tools/check-cli.mjs
+      - run: python -m pip install -r tools/requirements.txt
+      - run: python tools/verify-reference.py

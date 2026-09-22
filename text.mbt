@@ -14,14 +14,30 @@ fn text_lines(text : String) -> Array[String] raise {
     raise Failure("text exceeds 64 million characters")
   }
   let normalized = StringBuilder()
+  let mut previous_cr = false
+  let mut lines = 1
+  let mut width = 0
   for c in text {
-    if c == '\r' {
+    if c == '\r' || (c == '\n' && !previous_cr) {
+      lines += 1
+      width = 0
+      if lines > 1000000 {
+        raise Failure("text exceeds one million lines")
+      }
       normalized.write_char('\n')
-    } else if c == '\n' || c == '\t' || (c >= ' ' && c <= '~') {
+    } else if c == '\n' {
+      // CRLF is one physical line, including inside preserved information.
+      ()
+    } else if c == '\t' || (c >= ' ' && c <= '~') {
+      width += 1
+      if width > 262144 {
+        raise Failure("text line exceeds 262144 characters")
+      }
       normalized.write_char(c)
     } else {
       raise Failure("Touchstone requires printable ASCII, tab and line endings")
     }
+    previous_cr = c == '\r'
   }
   normalized.to_string().split("\n").map(x => x.to_owned()).to_array()
 }
@@ -220,4 +236,14 @@ fn write_pair(
     }
     out.write_string(" \{a} \{b}")
   }
+}
+
+///|
+// Keep serialized output inside the same file-size contract as the reader.
+fn bounded_output(out : StringBuilder) -> String raise {
+  let result = out.to_string()
+  if result.length() > 64000000 {
+    raise Failure("serialized text exceeds 64 million characters")
+  }
+  result
 }

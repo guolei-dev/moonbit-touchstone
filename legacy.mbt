@@ -113,5 +113,5 @@ pub fn Network::write_legacy(
     }
     out.write_string("\n")
   }
-  out.to_string()
+  bounded_output(out)
 }

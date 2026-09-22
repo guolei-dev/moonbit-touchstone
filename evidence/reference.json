@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "cases": 538,
+  "checks": 1398,
+  "seed": 20260922,
+  "maximum_absolute_error": 5.21996785701851e-12,
+  "elapsed_seconds": 9.127412000030745,
+  "benchmark": {
+    "points": 2000,
+    "ports": 2,
+    "operation": "parse + full diagnostics + JSON IPC",
+    "seconds": 0.039377400011289865
+  },
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "scikit_rf": "2.1.0",
+    "node": "v24.11.0",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "source_sha256": {
+    "analysis.mbt": "c67936328db5fbbe0d0ab4098697003908ee41a8422c3c7286503827bae56dfd",
+    "analysis_test.mbt": "11947393626dc6100fca08177486573e37aef8c7694fe8eeb3da9c7d67bdb786",
+    "cascade.mbt": "6dc09bd7f21b7eaa004b7891cc8f23a24dee9c6b88aafb90583ed151caebdefb",
+    "cmd/bridge/entry.mbt": "707731f6d55f8795e9fd5ae849230f5505042484d3dd0705b0e8916a200d69e0",
+    "cmd/bridge/main.mbt": "a38cc0360e66d2dfdd8d7af7af5fa31be52db3c611327abeb50920c93449e851",
+    "cmd/bridge/moon.pkg": "ffff55de311f43a8e49ec540385ef20d2bbe876eb1c88e2429c2da5ec476568c",
+    "complex.mbt": "3147d7d3ffc973367065ec9c7c57b0add94301d805f172519dc35caa25e0fb80",
+    "conversion.mbt": "60d75c42717700259a149c48c8300e7f3efec793dd514bd670a0e8a6658eb79d",
+    "core_test.mbt": "ddbc73bcadfc959b958dbeb01e82e7633ac94d40bd682d73b62d77d9cdb0291f",
+    "document.mbt": "032f5b3064d9f2b9d9939c4c09c3f158269d89a87b4399268561fbfdb509b2b7",
+    "document_test.mbt": "a85fa04716549a9485decf5890ac139766fc1109bd9108f4d3f3dcc2b66b80b1",
+    "legacy.mbt": "83c44a54bc3d06a36b12aeeffa1b22fe8813517cbcc3a714d1a7c06b8bc8f334",
+    "legacy_test.mbt": "d41f8402e21b84fe3728a1afd40902ee73e11de07ccdd6db80a9f6965b6f3359",
+    "line_endings_test.mbt": "48e7fc6a73d38990357b536e2543a93986859e34f379a7922ac65280c4517896",
+    "matrix.mbt": "84d0ce5fa77bb110a8d8994ce3e94de7e4e31a4aaed99baf174deb3504890143",
+    "moon.mod": "e64563d5d5e5b1cd306efa0b68f4d58cb7df5367ff9a369359307cdadf284b2c",
+    "moon.pkg": "1fa45e931ee41a48ebdd86b97b9298a40a2877f97333fb5b66f3a28986e6c106",
+    "network.mbt": "669d467218d02f9aeffc7d5318f017c81fd067cabc12f880bd260629f011e83c",
+    "operations_test.mbt": "9201652cf318aee95fe471aae8778ce87338a74a607780c75b6b163470a98109",
+    "pkg.generated.mbti": "7bd19779bbe6695fcec00a400f242270561ed52ed90985b3f2d9eae4fa84f7eb",
+    "text.mbt": "e40c2c9a23e4aa6c7c7ff305b75ff3874876241b4c87b72ae7054637d864b40b",
+    "tools/check-cli.mjs": "9b7aae8641bc97e9f4113941fa8666ce47a731119d66348c9d735205b3bba6c4",
+    "tools/oracle-host.mjs": "d10dae271bf98caeda247fbee8a45170607febdefd1728fd3030ce1945ddbd29",
+    "tools/touchstone.mjs": "efa9e91f71403631160aeb4aa0ed5bdfac1165d3df23c224677c4ad729ea7f34",
+    "tools/verify-reference.py": "8efac8d0aa25edb0cad60d6ecade1cd3833c80612cca68c7883c4d20c8ca4f4a",
+    "versioned.mbt": "12ba4176bde8eaa2cdc4ee83ea6f888ec02e9501696c9f4bf22a19f863b47134"
+  },
+  "limits": [
+    "positive real references",
+    "well-conditioned randomized matrices",
+    "pointwise spectral diagnostics, not broadband causality",
+    "mixed-mode descriptors preserved, no mixed-mode conversion"
+  ]
+}

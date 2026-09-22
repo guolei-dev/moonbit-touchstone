@@ -50,7 +50,7 @@ pub fn Document::network_only(Self) -> Network raise
 pub fn Document::noise_data(Self) -> Array[NoisePoint]
 pub fn Document::noise_reference_ohms(Self) -> Double
 pub fn Document::raw_network(Self) -> Network
-pub fn Document::write(Self) -> String
+pub fn Document::write(Self) -> String raise
 
 pub struct Network {
   // private fields

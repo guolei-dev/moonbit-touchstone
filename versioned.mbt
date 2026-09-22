@@ -47,12 +47,17 @@ pub fn parse(text : String, ports? : Int) -> Document raise {
   let mut mode = "header"
   let mut continuation = ""
   let mut opt : TextOptions? = None
+  let mut info_size = 0
   for raw in lines {
     let line = uncomment(raw)
     if mode == "information" {
       if line.to_upper() == "[END INFORMATION]" {
         mode = "header"
       } else {
+        info_size += raw.length()
+        if info_size > 1000000 {
+          raise Failure("information exceeds one million characters")
+        }
         information.push(raw)
       }
       continue
@@ -143,6 +148,10 @@ pub fn parse(text : String, ports? : Int) -> Document raise {
         }
         _ => raise Failure("unsupported keyword: " + key)
       }
+      if (key == "REFERENCE" || key == "MIXED-MODE ORDER") &&
+        value.length() > 4096 {
+        raise Failure("reference/mode header exceeds 4096 characters")
+      }
       headers[key] = value
       continue
     }
@@ -150,6 +159,9 @@ pub fn parse(text : String, ports? : Int) -> Document raise {
       "header" => {
         if continuation == "" {
           raise Failure("unexpected numeric header content")
+        }
+        if headers[continuation].length() + line.length() + 1 > 4096 {
+          raise Failure("reference/mode header exceeds 4096 characters")
         }
         headers[continuation] = headers[continuation] + " " + line
       }
@@ -264,7 +276,7 @@ pub fn parse(text : String, ports? : Int) -> Document raise {
 ///|
 /// Canonical 2.1 output in Hz/RI/full/12_21 form; preserves noise, mode order,
 /// information and references. Comments and original whitespace are not kept.
-pub fn Document::write(self : Document) -> String {
+pub fn Document::write(self : Document) -> String raise {
   let n = self.data.n
   let out = StringBuilder()
   out.write_string(
@@ -315,5 +327,5 @@ pub fn Document::write(self : Document) -> String {
     }
   }
   out.write_string("[End]\n")
-  out.to_string()
+  bounded_output(out)
 }
