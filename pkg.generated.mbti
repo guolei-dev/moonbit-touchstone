@@ -47,11 +47,17 @@ pub fn Document::write(Self) -> String
 pub struct Network {
   // private fields
 }
+pub fn Network::cascade(Self, Self) -> Self raise
+pub fn Network::convert(Self, String) -> Self raise
+pub fn Network::deembed(Self, Self, Self) -> Self raise
 pub fn Network::frequency_hz(Self) -> Array[Double]
+pub fn Network::interpolate(Self, Array[Double]) -> Self raise
 pub fn Network::matrix(Self, Int) -> Array[Complex] raise
 pub fn Network::parameter(Self) -> String
 pub fn Network::ports(Self) -> Int
 pub fn Network::reference_ohms(Self) -> Array[Double]
+pub fn Network::renormalize(Self, Array[Double]) -> Self raise
+pub fn Network::select_ports(Self, Array[Int]) -> Self raise
 pub fn Network::write_legacy(Self, format? : String, unit? : String) -> String raise
 
 pub(all) struct NoisePoint {
