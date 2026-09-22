@@ -1,0 +1,41 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "localreview/touchstone"
+
+// Values
+pub fn complex(Double, im? : Double) -> Complex
+
+pub fn invert_matrix(Int, Array[Complex]) -> Array[Complex] raise
+
+pub fn multiply_matrices(Int, Array[Complex], Array[Complex]) -> Array[Complex] raise
+
+pub fn network(Int, Array[Double], Array[Array[Complex]], Array[Double], parameter? : String) -> Network raise
+
+// Errors
+
+// Types and methods
+pub(all) struct Complex {
+  re : Double
+  im : Double
+} derive(ToJson)
+pub fn Complex::add(Self, Self) -> Self
+pub fn Complex::conjugate(Self) -> Self
+pub fn Complex::divide(Self, Self) -> Self raise
+pub fn Complex::magnitude(Self) -> Double
+pub fn Complex::mul(Self, Self) -> Self
+pub fn Complex::phase(Self) -> Double
+pub fn Complex::scale(Self, Double) -> Self
+pub fn Complex::sub(Self, Self) -> Self
+pub fn Complex::to_json(Self) -> Json
+
+pub struct Network {
+  // private fields
+}
+pub fn Network::frequency_hz(Self) -> Array[Double]
+pub fn Network::matrix(Self, Int) -> Array[Complex] raise
+pub fn Network::parameter(Self) -> String
+pub fn Network::ports(Self) -> Int
+pub fn Network::reference_ohms(Self) -> Array[Double]
+
+// Type aliases
+
+// Traits
