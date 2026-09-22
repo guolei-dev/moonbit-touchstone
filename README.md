@@ -84,4 +84,6 @@ python tools/verify-reference.py
 
 独立开发参考为 [IBIS Touchstone 2.1 规范](https://www.ibis.org/touchstone_ver2.1/touchstone_ver2_1.pdf) 和 [scikit-rf](https://scikit-rf.readthedocs.io/)。没有复制规范全文或把 Python 库包装成实现。详细独立检查、容差、工作量测量及源码散列见 [TESTING](docs/TESTING.md) 和 [reference.json](evidence/reference.json)。
 
+验证工具许可证、参考范围和合成样例来源见 [SOURCES](docs/SOURCES.md)。
+
 查重刷新于 2026-09-22：Mooncakes `kw=touchstone` 与 GitHub `touchstone language:MoonBit` 均未命中，并检查公开网页索引；此结论限检索范围，不宣称全球不存在。
