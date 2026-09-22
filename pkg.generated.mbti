@@ -4,11 +4,15 @@ package "localreview/touchstone"
 // Values
 pub fn complex(Double, im? : Double) -> Complex
 
+pub fn document(Network, noise? : Array[NoisePoint], noise_reference_ohms? : Double, mixed_mode_order? : Array[String], information? : Array[String]) -> Document raise
+
 pub fn invert_matrix(Int, Array[Complex]) -> Array[Complex] raise
 
 pub fn multiply_matrices(Int, Array[Complex], Array[Complex]) -> Array[Complex] raise
 
 pub fn network(Int, Array[Double], Array[Array[Complex]], Array[Double], parameter? : String) -> Network raise
+
+pub fn parse(String, ports? : Int) -> Document raise
 
 pub fn parse_legacy(String, ports~ : Int) -> Network raise
 
@@ -29,6 +33,17 @@ pub fn Complex::scale(Self, Double) -> Self
 pub fn Complex::sub(Self, Self) -> Self
 pub fn Complex::to_json(Self) -> Json
 
+pub struct Document {
+  // private fields
+}
+pub fn Document::information_lines(Self) -> Array[String]
+pub fn Document::mixed_mode_order(Self) -> Array[String]
+pub fn Document::network_only(Self) -> Network raise
+pub fn Document::noise_data(Self) -> Array[NoisePoint]
+pub fn Document::noise_reference_ohms(Self) -> Double
+pub fn Document::raw_network(Self) -> Network
+pub fn Document::write(Self) -> String
+
 pub struct Network {
   // private fields
 }
@@ -38,6 +53,14 @@ pub fn Network::parameter(Self) -> String
 pub fn Network::ports(Self) -> Int
 pub fn Network::reference_ohms(Self) -> Array[Double]
 pub fn Network::write_legacy(Self, format? : String, unit? : String) -> String raise
+
+pub(all) struct NoisePoint {
+  frequency_hz : Double
+  minimum_figure_db : Double
+  gamma_opt : Complex
+  resistance_ohms : Double
+} derive(ToJson)
+pub fn NoisePoint::to_json(Self) -> Json
 
 // Type aliases
 
