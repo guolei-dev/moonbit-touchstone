@@ -10,6 +10,8 @@ pub fn multiply_matrices(Int, Array[Complex], Array[Complex]) -> Array[Complex] 
 
 pub fn network(Int, Array[Double], Array[Array[Complex]], Array[Double], parameter? : String) -> Network raise
 
+pub fn parse_legacy(String, ports~ : Int) -> Network raise
+
 // Errors
 
 // Types and methods
@@ -35,6 +37,7 @@ pub fn Network::matrix(Self, Int) -> Array[Complex] raise
 pub fn Network::parameter(Self) -> String
 pub fn Network::ports(Self) -> Int
 pub fn Network::reference_ohms(Self) -> Array[Double]
+pub fn Network::write_legacy(Self, format? : String, unit? : String) -> String raise
 
 // Type aliases
 
