@@ -1,0 +1,5 @@
+import {
+  "localreview/touchstone",
+}
+
+pkgtype(kind: "executable")

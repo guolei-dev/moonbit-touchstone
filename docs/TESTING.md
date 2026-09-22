@@ -1,6 +1,20 @@
 # 可复现验证与边界
 
-## 本机实际执行
+## 频段增强后的当前验证（2026-09-22）
+
+- 格式检查、接口生成、`moon check --target all --deny-warn`、release JS 构建通过。
+- JS / Wasm-GC 各22个测试块：原16块加6块频段契约测试。覆盖闭区间、并列极值、原始编号、范围不足、无采样、正无穷、有源反射、共享预算、非S转换和工作量拒绝。
+- `tools/verify-bands.py`：104组独立组合场景、128项检查、17项真实文件CLI检查。scikit-rf生成/重读和数值属性，NumPy独立选点/极值/违规集合；JSON递归类型检查防止省略null或Option数组混淆。
+- 原 `tools/verify-reference.py` 在当前源码重新通过538组/1398项；原CLI14项通过，没有把历史结果冒充此次执行。
+- 纯MoonBit组合示例在JS/Wasm-GC实际运行；其故意不通过的规则得到原始点1、2，对应两个CSV问题行。
+- 新增基准为1000/10000点、5条规则、8个保留明细的解析+检查+JSON IPC，实测值见 `evidence/band-reference.json`；不含Python期望结果计算，不是纯算法或跨库速度排名。
+
+当前总证据 `evidence/bands-20260922.json` 绑定全部非evidence Git源文件（文本CRLF统一为LF）及两份参考回执。
+`evidence/band-baseline-reference.json` 是原验证器本次重跑的Windows原始字节散列；跨平台归档应以总证据的规范化源码散列为准。
+`evidence/reference.json` 仍是增强前历史，不覆盖、不用于证明新源码。新回执普通脚本运行不覆盖，需显式 `--evidence PATH`。
+CI新增频段独立对照与两后端示例；仅修改配置，未宣称远程CI已执行。正式发布/申报由团队负责，不是本地技术工作的前置阻点。
+
+## 增强前基线记录（历史）
 
 2026-09-22，Windows 11，Node 24.11.0，moon 0.1.20260920 / moonc 0.10.14：
 

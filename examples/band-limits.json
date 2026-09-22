@@ -1,0 +1,8 @@
+{
+  "limits": [
+    {"metric":"insertion_loss_db","start_hz":100000000,"end_hz":300000000,"input":0,"output":1,"minimum":6.0,"maximum":6.1},
+    {"metric":"return_loss_db","start_hz":100000000,"end_hz":300000000,"input":0,"output":1,"minimum":20.0},
+    {"metric":"vswr","start_hz":100000000,"end_hz":300000000,"input":0,"output":1,"maximum":1.5}
+  ],
+  "max_details": 256
+}

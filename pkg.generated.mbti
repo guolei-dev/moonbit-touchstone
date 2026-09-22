@@ -2,6 +2,8 @@
 package "localreview/touchstone"
 
 // Values
+pub fn band_limit(BandMetric, Double, Double, input~ : Int, output~ : Int, minimum? : Double, maximum? : Double) -> BandLimit raise
+
 pub fn complex(Double, im? : Double) -> Complex
 
 pub fn document(Network, noise? : Array[NoisePoint], noise_reference_ohms? : Double, mixed_mode_order? : Array[String], information? : Array[String]) -> Document raise
@@ -19,6 +21,67 @@ pub fn parse_legacy(String, ports~ : Int) -> Network raise
 // Errors
 
 // Types and methods
+pub struct BandIssue {
+  observation : BandObservation
+  reason : String
+} derive(ToJson)
+pub fn BandIssue::to_json(Self) -> Json
+
+pub struct BandLimit {
+  metric : BandMetric
+  start_hz : Double
+  end_hz : Double
+  input : Int
+  output : Int
+  minimum : Double?
+  maximum : Double?
+}
+
+pub(all) enum BandMetric {
+  ReflectionMagnitude
+  TransmissionMagnitude
+  ReturnLossDb
+  InsertionLossDb
+  Vswr
+}
+pub fn BandMetric::name(Self) -> String
+
+pub struct BandObservation {
+  point : Int
+  frequency_hz : Double
+  value : Double?
+  state : String
+}
+pub fn BandObservation::to_json(Self) -> Json
+pub impl ToJson for BandObservation
+
+pub struct BandReport {
+  scope : String
+  status : String
+  reference_ohms : Array[Double]
+  max_details : Int
+  results : Array[BandResult]
+} derive(ToJson)
+pub fn BandReport::issues_csv(Self) -> String
+pub fn BandReport::to_json(Self) -> Json
+
+pub struct BandResult {
+  rule : BandLimit
+  status : String
+  range_covered : Bool
+  start_sampled : Bool
+  end_sampled : Bool
+  sample_count : Int
+  failed_count : Int
+  undefined_count : Int
+  lowest : BandObservation?
+  highest : BandObservation?
+  issues : Array[BandIssue]
+  issues_truncated : Bool
+}
+pub fn BandResult::to_json(Self) -> Json
+pub impl ToJson for BandResult
+
 pub(all) struct Complex {
   re : Double
   im : Double
@@ -56,6 +119,7 @@ pub struct Network {
   // private fields
 }
 pub fn Network::cascade(Self, Self) -> Self raise
+pub fn Network::check_bands(Self, Array[BandLimit], max_details? : Int) -> BandReport raise
 pub fn Network::convert(Self, String) -> Self raise
 pub fn Network::deembed(Self, Self, Self) -> Self raise
 pub fn Network::diagnostics(Self, tolerance? : Double) -> Array[Diagnostic] raise

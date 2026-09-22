@@ -1,0 +1,183 @@
+{
+  "recorded_utc": "2026-09-22T11:28:17.787Z",
+  "project": "touchstone",
+  "status": "passed",
+  "original_revision": "fb2f3d58472021abba54fc667d5400dc3f6521f3",
+  "change": "Sampled-frequency multi-band limits with source positions, extrema, bounded details, JSON/CSV, real CLI and pure MoonBit example.",
+  "compatibility_changes": [
+    "CLI integer indices and budgets reject fractional numbers.",
+    "Band commands use exit 3 for violations and 4 for inconclusive; malformed requests/IO keep exit 2."
+  ],
+  "checks": {
+    "core_js": 22,
+    "core_wasm_gc": 22,
+    "strict_all_target_check": true,
+    "baseline_cases": 538,
+    "baseline_checks": 1398,
+    "baseline_cli": 14,
+    "band_cases": 104,
+    "band_checks": 128,
+    "band_cli": 17,
+    "example_targets": [
+      "js",
+      "wasm-gc"
+    ]
+  },
+  "preceding_checks": {
+    "note": "Executed immediately before this remaining-check script in the same task turn; no MoonBit code changed afterward. Only documentation was finalized.",
+    "commands": [
+      "moon fmt",
+      "moon info",
+      "moon check --target all --deny-warn",
+      "moon test --target js --deny-warn",
+      "moon test --target wasm-gc --deny-warn"
+    ],
+    "test_stdout": "Total tests: 22, passed: 22, failed: 0."
+  },
+  "source_sha256": {
+    ".gitattributes": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+    ".github/workflows/ci.yml": "4b14434f771fd9cd1dd8c50fadf6409a6270a4a17631e7154c75ca916f24e885",
+    ".gitignore": "982f7b215e553653fc1503cab82d184a29854a12cb183bb9b68b99563a6d9eaa",
+    "AGENTS.md": "97847f1fb5f35656cbedc28b49d96ffb1f48e6719f52621f773a79a1f993f01f",
+    "LICENSE": "42a0e340c74e58e0ce80787e849b1d1c8d4e7c4346a9ceece672959b7ddbf7d0",
+    "README.md": "6ed4d4494ef4acb53d887bb4ce59cfb4c346692d34f72b922eaad79cb5474c60",
+    "analysis.mbt": "c67936328db5fbbe0d0ab4098697003908ee41a8422c3c7286503827bae56dfd",
+    "analysis_test.mbt": "11947393626dc6100fca08177486573e37aef8c7694fe8eeb3da9c7d67bdb786",
+    "bands.mbt": "a0075249f9fe306b281711f506c48e0e7760ee3361c8655d8a25ae5af8973c54",
+    "bands_test.mbt": "55477b23457f03db1cdb5cb70a73bf2907e64ed1abf093128e5bae9e037ec185",
+    "cascade.mbt": "6dc09bd7f21b7eaa004b7891cc8f23a24dee9c6b88aafb90583ed151caebdefb",
+    "cmd/bridge/entry.mbt": "707731f6d55f8795e9fd5ae849230f5505042484d3dd0705b0e8916a200d69e0",
+    "cmd/bridge/main.mbt": "c03927e795ed95d218c256ac08bc98de41f64645f1d42f304b6f4bd0c11e42f4",
+    "cmd/bridge/moon.pkg": "ffff55de311f43a8e49ec540385ef20d2bbe876eb1c88e2429c2da5ec476568c",
+    "complex.mbt": "3147d7d3ffc973367065ec9c7c57b0add94301d805f172519dc35caa25e0fb80",
+    "conversion.mbt": "60d75c42717700259a149c48c8300e7f3efec793dd514bd670a0e8a6658eb79d",
+    "core_test.mbt": "ddbc73bcadfc959b958dbeb01e82e7633ac94d40bd682d73b62d77d9cdb0291f",
+    "docs/BANDS.md": "11a5ed80f76dba78483f0a896261e186b73d90778b40223f5f34fb073e34b339",
+    "docs/PROGRESS.md": "503dc732cc6d593637e31487ab9aaaa69811aac25b00ad96777de29b63891384",
+    "docs/SCOPE.md": "640a992580d91f9ea24748a02df8245f453a5963656a83c89d45972b67cd2830",
+    "docs/SOURCES.md": "80d6d8e20f5e320770a8f16e4f9da8e39b8b434556543b9608b50c910c896db6",
+    "docs/TESTING.md": "c232eb2b6b1ed4ae2362816cda7f9bdbffb8b346efc029f66bb67d2cc012c11d",
+    "document.mbt": "032f5b3064d9f2b9d9939c4c09c3f158269d89a87b4399268561fbfdb509b2b7",
+    "document_test.mbt": "a85fa04716549a9485decf5890ac139766fc1109bd9108f4d3f3dcc2b66b80b1",
+    "examples/attenuator.s2p": "4bcf9b003e8764d2386347770a11013bfba69edebcb8a2ff832e6871a0618952",
+    "examples/band-limits.json": "e365efe40de4cfaaf3a58a4f3b72b5800af179b639c8d780155ae639f4d39d83",
+    "examples/band_check/main.mbt": "343cc363b26d864eeb015fd599c2408c70b278aa7256195e35df337daafa50aa",
+    "examples/band_check/moon.pkg": "2be99c30706dbccd36d1acf8a42465899317a9bd0a52b2360ee223ca8ece08b5",
+    "examples/band_check/pkg.generated.mbti": "a38cb0fb98254c1ee74996c7f22a8834b73735f122fb68b03df0ad2772f939d7",
+    "legacy.mbt": "83c44a54bc3d06a36b12aeeffa1b22fe8813517cbcc3a714d1a7c06b8bc8f334",
+    "legacy_test.mbt": "d41f8402e21b84fe3728a1afd40902ee73e11de07ccdd6db80a9f6965b6f3359",
+    "line_endings_test.mbt": "48e7fc6a73d38990357b536e2543a93986859e34f379a7922ac65280c4517896",
+    "matrix.mbt": "84d0ce5fa77bb110a8d8994ce3e94de7e4e31a4aaed99baf174deb3504890143",
+    "moon.mod": "e64563d5d5e5b1cd306efa0b68f4d58cb7df5367ff9a369359307cdadf284b2c",
+    "moon.pkg": "1fa45e931ee41a48ebdd86b97b9298a40a2877f97333fb5b66f3a28986e6c106",
+    "network.mbt": "669d467218d02f9aeffc7d5318f017c81fd067cabc12f880bd260629f011e83c",
+    "operations_test.mbt": "9201652cf318aee95fe471aae8778ce87338a74a607780c75b6b163470a98109",
+    "pkg.generated.mbti": "fdb48bf1430f5264d07cbc5c2bcb4f3868429ef384de41f5bd0a5de1421f18bb",
+    "text.mbt": "e40c2c9a23e4aa6c7c7ff305b75ff3874876241b4c87b72ae7054637d864b40b",
+    "tools/check-cli.mjs": "9b7aae8641bc97e9f4113941fa8666ce47a731119d66348c9d735205b3bba6c4",
+    "tools/oracle-host.mjs": "d10dae271bf98caeda247fbee8a45170607febdefd1728fd3030ce1945ddbd29",
+    "tools/requirements.txt": "dc401560fab55d8431bb3230287c7d4cd73247d2aea30baad67420b48aefdd74",
+    "tools/touchstone.mjs": "477ec627345679ef43f9450ecd109fed5ccba2b26b8a2c4e840b40f9bf7617b3",
+    "tools/verify-bands.py": "1edc84419b15f65ea1a84f186b208df4c64e0763fbe1145b81c3abdf5b6529cc",
+    "tools/verify-reference.py": "8efac8d0aa25edb0cad60d6ecade1cd3833c80612cca68c7883c4d20c8ca4f4a",
+    "versioned.mbt": "12ba4176bde8eaa2cdc4ee83ea6f888ec02e9501696c9f4bf22a19f863b47134"
+  },
+  "hash_normalization": "CRLF -> LF for source and reference receipt text",
+  "evidence_sha256": {
+    "band-reference.json": "7285e15dbca5461161e8528ae30014c91dc9705fc1539a70a7fe9ad6e1edcf4b",
+    "band-baseline-reference.json": "9a4dea063542ef3d74266ff56ec69d2a4abec94e142ef937223b45a87da6eca1"
+  },
+  "historical_evidence": "reference.json is the pre-enhancement baseline; its hashes are not evidence for this source. band-baseline-reference.json raw source hashes were verified on the Windows working files before sealing; this receipt supplies portable LF-normalized hashes.",
+  "remote_ci_run": false,
+  "publication": "outside local implementation scope; handled by team",
+  "commands": [
+    {
+      "command": "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-21\\moonbit-local-continuation\\work\\moon-ci-snapshot\\bin\\moon.exe",
+      "args": [
+        "fmt",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Finished. moon: ran 25 tasks, now up to date\n"
+    },
+    {
+      "command": "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-21\\moonbit-local-continuation\\work\\moon-ci-snapshot\\bin\\moon.exe",
+      "args": [
+        "build",
+        "--target",
+        "js",
+        "--release",
+        "--deny-warn"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Finished. moon: ran 2 tasks, now up to date\n"
+    },
+    {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "tools/check-cli.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"checks\":14,\"status\":\"passed\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:/Users/uiwcv/Documents/Codex/2026-09-10/ban/work/five-reference-venv/Scripts/python.exe",
+      "args": [
+        "tools/verify-reference.py",
+        "--evidence",
+        "evidence/band-baseline-reference.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\r\n  \"status\": \"passed\",\r\n  \"cases\": 538,\r\n  \"checks\": 1398,\r\n  \"seed\": 20260922,\r\n  \"maximum_absolute_error\": 5.21996785701851e-12,\r\n  \"elapsed_seconds\": 15.350478899999871,\r\n  \"benchmark\": {\r\n    \"points\": 2000,\r\n    \"ports\": 2,\r\n    \"operation\": \"parse + full diagnostics + JSON IPC\",\r\n    \"seconds\": 0.040048299999398296\r\n  },\r\n  \"versions\": {\r\n    \"python\": \"3.14.4\",\r\n    \"numpy\": \"2.5.3\",\r\n    \"scikit_rf\": \"2.1.0\",\r\n    \"node\": \"v24.11.0\",\r\n    \"platform\": \"Windows-11-10.0.26200-SP0\"\r\n  },\r\n  \"limits\": [\r\n    \"positive real references\",\r\n    \"well-conditioned randomized matrices\",\r\n    \"pointwise spectral diagnostics, not broadband causality\",\r\n    \"mixed-mode descriptors preserved, no mixed-mode conversion\"\r\n  ]\r\n}\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:/Users/uiwcv/Documents/Codex/2026-09-10/ban/work/five-reference-venv/Scripts/python.exe",
+      "args": [
+        "tools/verify-bands.py",
+        "--evidence",
+        "evidence/band-reference.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"passed\", \"python\": \"3.14.4\", \"numpy\": \"2.5.3\", \"scikit_rf\": \"2.1.0\", \"matrix_cases\": 104, \"checks\": 128, \"cli_checks\": 17, \"seconds\": 7.794475200000306, \"measurements\": [{\"points\": 1000, \"rules\": 5, \"details\": 8, \"roundtrip_seconds\": 0.00652289999925415}, {\"points\": 10000, \"rules\": 5, \"details\": 8, \"roundtrip_seconds\": 0.05079299999852083}], \"scope\": \"Synthetic sampled-frequency checks; not continuous band or physical certification.\"}\r\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-21\\moonbit-local-continuation\\work\\moon-ci-snapshot\\bin\\moon.exe",
+      "args": [
+        "run",
+        "examples/band_check",
+        "--target",
+        "js"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"scope\":\"sampled_points_only\",\"status\":\"fail\",\"reference_ohms\":[50,50],\"max_details\":16,\"results\":[{\"metric\":\"insertion_loss_db\",\"start_hz\":100000000,\"end_hz\":300000000,\"input\":0,\"output\":1,\"minimum\":6,\"maximum\":6.1,\"status\":\"pass\",\"range_covered\":true,\"start_sampled\":true,\"end_sampled\":true,\"sample_count\":3,\"failed_count\":0,\"undefined_count\":0,\"lowest\":{\"point\":0,\"frequency_hz\":100000000,\"value\":6.020599913279624,\"state\":\"finite\"},\"highest\":{\"point\":0,\"frequency_hz\":100000000,\"value\":6.020599913279624,\"state\":\"finite\"},\"issues\":[],\"issues_truncated\":false},{\"metric\":\"return_loss_db\",\"start_hz\":100000000,\"end_hz\":300000000,\"input\":0,\"output\":1,\"minimum\":15,\"maximum\":null,\"status\":\"fail\",\"range_covered\":true,\"start_sampled\":true,\"end_sampled\":true,\"sample_count\":3,\"failed_count\":2,\"undefined_count\":0,\"lowest\":{\"point\":2,\"frequency_hz\":300000000,\"value\":10.457574905606752,\"state\":\"finite\"},\"highest\":{\"point\":0,\"frequency_hz\":100000000,\"value\":20,\"state\":\"finite\"},\"issues\":[{\"observation\":{\"point\":1,\"frequency_hz\":200000000,\"value\":13.979400086720375,\"state\":\"finite\"},\"reason\":\"below_minimum\"},{\"observation\":{\"point\":2,\"frequency_hz\":300000000,\"value\":10.457574905606752,\"state\":\"finite\"},\"reason\":\"below_minimum\"}],\"issues_truncated\":false}]}\nrule,metric,input,output,point,frequency_hz,value,state,reason\n1,return_loss_db,0,1,1,200000000,13.979400086720375,finite,below_minimum\n1,return_loss_db,0,1,2,300000000,10.457574905606752,finite,below_minimum\n\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-21\\moonbit-local-continuation\\work\\moon-ci-snapshot\\bin\\moon.exe",
+      "args": [
+        "run",
+        "examples/band_check",
+        "--target",
+        "wasm-gc"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"scope\":\"sampled_points_only\",\"status\":\"fail\",\"reference_ohms\":[50,50],\"max_details\":16,\"results\":[{\"metric\":\"insertion_loss_db\",\"start_hz\":100000000,\"end_hz\":300000000,\"input\":0,\"output\":1,\"minimum\":6,\"maximum\":6.1,\"status\":\"pass\",\"range_covered\":true,\"start_sampled\":true,\"end_sampled\":true,\"sample_count\":3,\"failed_count\":0,\"undefined_count\":0,\"lowest\":{\"point\":0,\"frequency_hz\":100000000,\"value\":6.020599913279624,\"state\":\"finite\"},\"highest\":{\"point\":0,\"frequency_hz\":100000000,\"value\":6.020599913279624,\"state\":\"finite\"},\"issues\":[],\"issues_truncated\":false},{\"metric\":\"return_loss_db\",\"start_hz\":100000000,\"end_hz\":300000000,\"input\":0,\"output\":1,\"minimum\":15,\"maximum\":null,\"status\":\"fail\",\"range_covered\":true,\"start_sampled\":true,\"end_sampled\":true,\"sample_count\":3,\"failed_count\":2,\"undefined_count\":0,\"lowest\":{\"point\":2,\"frequency_hz\":300000000,\"value\":10.457574905606752,\"state\":\"finite\"},\"highest\":{\"point\":0,\"frequency_hz\":100000000,\"value\":20,\"state\":\"finite\"},\"issues\":[{\"observation\":{\"point\":1,\"frequency_hz\":200000000,\"value\":13.979400086720375,\"state\":\"finite\"},\"reason\":\"below_minimum\"},{\"observation\":{\"point\":2,\"frequency_hz\":300000000,\"value\":10.457574905606752,\"state\":\"finite\"},\"reason\":\"below_minimum\"}],\"issues_truncated\":false}]}\nrule,metric,input,output,point,frequency_hz,value,state,reason\n1,return_loss_db,0,1,1,200000000,13.979400086720375,finite,below_minimum\n1,return_loss_db,0,1,2,300000000,10.457574905606752,finite,below_minimum\n\n",
+      "stderr": ""
+    },
+    {
+      "command": "git",
+      "args": [
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

@@ -11,6 +11,7 @@ MoonBit 原生 Touchstone 文件库与小规模 RF 网络数据工具。格式�
 - 噪声参数、独立噪声参考电阻、混合模端口描述和信息段保存。规范化写出 2.1；普通网络可写 1.0/1.1。
 - S/Y/Z/H/G 转换（H/G 限二端口），重归一化，端口选择，复平面线性插值，二端口级联和双夹具去嵌入。
 - 互易误差、完整矩阵无源性诊断、群时延、回波损耗、插入损耗和 VSWR。
+- 多频段采样点限值检查：逐规则判定、原始频点定位、极值、全量计数、限额明细和 CSV；没有采样或覆盖不足不会假通过。
 - 输入严格检查；不隐式丢弃噪声/混合模元数据；现有输出文件不会被 CLI 覆盖。
 
 ## 本地运行
@@ -25,6 +26,8 @@ moon build --target js --release
 node tools/touchstone.mjs inspect examples/attenuator.s2p
 node tools/touchstone.mjs metrics examples/attenuator.s2p '{"input":0,"output":1}'
 node tools/touchstone.mjs delay examples/attenuator.s2p '{"input":0,"output":1}'
+node tools/touchstone.mjs band-check examples/attenuator.s2p @examples/band-limits.json
+moon run examples/band_check --target js
 node tools/touchstone.mjs normalize examples/attenuator.s2p '{}' normalized.ts
 node tools/touchstone.mjs convert examples/attenuator.s2p '{"parameter":"Z"}' impedance.ts
 node tools/touchstone.mjs renormalize examples/attenuator.s2p '{"reference_ohms":[75,75]}' at75.ts
@@ -34,7 +37,7 @@ node tools/touchstone.mjs deembed cascaded.ts '{"left_file":"examples/attenuator
 
 以上 JSON 单引号适用 PowerShell 7 / POSIX shell，Windows cmd 需要按该 shell 的规则转义引号。示例是匹配 6.0206 dB 衰减器及 1 ns 延迟，不依赖下载文件。两只级联再去掉两只夹具得到理想直通，不能要求其有限 Z 表示。
 
-CLI 形式为 `COMMAND INPUT [OPTIONS-JSON] [OUTPUT]`。不指定输出则打印结果；报告为 JSON，转换为 Touchstone 文本。失败退出码 2。旧文件 `.sNp` 可推断端口数，其余旧格式文件需 `{"ports":N}`；2.x 若同时给出端口数必须与头一致。全部命令见 `--help`。
+CLI 形式为 `COMMAND INPUT [OPTIONS-JSON] [OUTPUT]`，选项也可用 `@path/to/options.json`（ASCII、≤1 MB）。不指定输出则打印结果；报告为 JSON，转换为 Touchstone 文本。输入/IO 错误退出 2；`band-check` / `band-csv` 返回 0（采样点通过）、3（超限）、4（无法判定），会先写出报告再返回状态码。旧文件 `.sNp` 可推断端口数，其余旧格式文件需 `{"ports":N}`；2.x 若同时给出端口数必须与头一致。端口、选择下标、预算必须是精确整数，小数不会自动截断。全部命令见 `--help`。
 
 | 命令 | 选项/行为 |
 |---|---|
@@ -45,6 +48,9 @@ CLI 形式为 `COMMAND INPUT [OPTIONS-JSON] [OUTPUT]`。不指定输出则打印
 | cascade / deembed | `right_file` / `left_file` 和 `right_file` |
 | diagnostics | 可选 `tolerance`，默认 1e-9 |
 | metrics / delay | `input`、`output` 零起点端口 |
+| band-check / band-csv | `limits` 规则数组；`max_details` 全局明细额度；[完整指南](docs/BANDS.md) |
+
+`examples/band_check` 是不依赖 Node 文件宿主的纯 MoonBit 示例，可用 JS / Wasm-GC 运行。示例故意设置一条不通过的回波损耗要求，展示 JSON 与原始超限点 CSV；它正常执行并输出 `fail` 不代表测试失败。
 
 ## 公共 API 与数值约定
 
@@ -80,10 +86,13 @@ moon info
 node tools/check-cli.mjs
 python -m pip install -r tools/requirements.txt
 python tools/verify-reference.py
+python tools/verify-bands.py
 ```
 
 独立开发参考为 [IBIS Touchstone 2.1 规范](https://www.ibis.org/touchstone_ver2.1/touchstone_ver2_1.pdf) 和 [scikit-rf](https://scikit-rf.readthedocs.io/)。没有复制规范全文或把 Python 库包装成实现。详细独立检查、容差、工作量测量及源码散列见 [TESTING](docs/TESTING.md) 和 [reference.json](evidence/reference.json)。
 
 验证工具许可证、参考范围和合成样例来源见 [SOURCES](docs/SOURCES.md)。
+
+新频段功能的当前源码绑定记录见 [bands-20260922.json](evidence/bands-20260922.json)；原 `reference.json` 保留为增强前的历史证据，不能用其旧散列证明新源码。
 
 查重刷新于 2026-09-22：Mooncakes `kw=touchstone` 与 GitHub `touchstone language:MoonBit` 均未命中，并检查公开网页索引；此结论限检索范围，不宣称全球不存在。

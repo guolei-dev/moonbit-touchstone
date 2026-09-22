@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "cases": 538,
+  "checks": 1398,
+  "seed": 20260922,
+  "maximum_absolute_error": 5.21996785701851e-12,
+  "elapsed_seconds": 15.350478899999871,
+  "benchmark": {
+    "points": 2000,
+    "ports": 2,
+    "operation": "parse + full diagnostics + JSON IPC",
+    "seconds": 0.040048299999398296
+  },
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.3",
+    "scikit_rf": "2.1.0",
+    "node": "v24.11.0",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "source_sha256": {
+    "analysis.mbt": "c67936328db5fbbe0d0ab4098697003908ee41a8422c3c7286503827bae56dfd",
+    "analysis_test.mbt": "11947393626dc6100fca08177486573e37aef8c7694fe8eeb3da9c7d67bdb786",
+    "bands.mbt": "a0075249f9fe306b281711f506c48e0e7760ee3361c8655d8a25ae5af8973c54",
+    "bands_test.mbt": "55477b23457f03db1cdb5cb70a73bf2907e64ed1abf093128e5bae9e037ec185",
+    "cascade.mbt": "6dc09bd7f21b7eaa004b7891cc8f23a24dee9c6b88aafb90583ed151caebdefb",
+    "cmd/bridge/entry.mbt": "707731f6d55f8795e9fd5ae849230f5505042484d3dd0705b0e8916a200d69e0",
+    "cmd/bridge/main.mbt": "c03927e795ed95d218c256ac08bc98de41f64645f1d42f304b6f4bd0c11e42f4",
+    "cmd/bridge/moon.pkg": "ffff55de311f43a8e49ec540385ef20d2bbe876eb1c88e2429c2da5ec476568c",
+    "complex.mbt": "3147d7d3ffc973367065ec9c7c57b0add94301d805f172519dc35caa25e0fb80",
+    "conversion.mbt": "60d75c42717700259a149c48c8300e7f3efec793dd514bd670a0e8a6658eb79d",
+    "core_test.mbt": "ddbc73bcadfc959b958dbeb01e82e7633ac94d40bd682d73b62d77d9cdb0291f",
+    "document.mbt": "032f5b3064d9f2b9d9939c4c09c3f158269d89a87b4399268561fbfdb509b2b7",
+    "document_test.mbt": "a85fa04716549a9485decf5890ac139766fc1109bd9108f4d3f3dcc2b66b80b1",
+    "examples/band_check/main.mbt": "343cc363b26d864eeb015fd599c2408c70b278aa7256195e35df337daafa50aa",
+    "examples/band_check/moon.pkg": "2be99c30706dbccd36d1acf8a42465899317a9bd0a52b2360ee223ca8ece08b5",
+    "examples/band_check/pkg.generated.mbti": "a38cb0fb98254c1ee74996c7f22a8834b73735f122fb68b03df0ad2772f939d7",
+    "legacy.mbt": "83c44a54bc3d06a36b12aeeffa1b22fe8813517cbcc3a714d1a7c06b8bc8f334",
+    "legacy_test.mbt": "d41f8402e21b84fe3728a1afd40902ee73e11de07ccdd6db80a9f6965b6f3359",
+    "line_endings_test.mbt": "48e7fc6a73d38990357b536e2543a93986859e34f379a7922ac65280c4517896",
+    "matrix.mbt": "84d0ce5fa77bb110a8d8994ce3e94de7e4e31a4aaed99baf174deb3504890143",
+    "moon.mod": "e64563d5d5e5b1cd306efa0b68f4d58cb7df5367ff9a369359307cdadf284b2c",
+    "moon.pkg": "1fa45e931ee41a48ebdd86b97b9298a40a2877f97333fb5b66f3a28986e6c106",
+    "network.mbt": "669d467218d02f9aeffc7d5318f017c81fd067cabc12f880bd260629f011e83c",
+    "operations_test.mbt": "9201652cf318aee95fe471aae8778ce87338a74a607780c75b6b163470a98109",
+    "pkg.generated.mbti": "fdb48bf1430f5264d07cbc5c2bcb4f3868429ef384de41f5bd0a5de1421f18bb",
+    "text.mbt": "e40c2c9a23e4aa6c7c7ff305b75ff3874876241b4c87b72ae7054637d864b40b",
+    "tools/check-cli.mjs": "9b7aae8641bc97e9f4113941fa8666ce47a731119d66348c9d735205b3bba6c4",
+    "tools/oracle-host.mjs": "d10dae271bf98caeda247fbee8a45170607febdefd1728fd3030ce1945ddbd29",
+    "tools/touchstone.mjs": "477ec627345679ef43f9450ecd109fed5ccba2b26b8a2c4e840b40f9bf7617b3",
+    "tools/verify-bands.py": "1edc84419b15f65ea1a84f186b208df4c64e0763fbe1145b81c3abdf5b6529cc",
+    "tools/verify-reference.py": "8efac8d0aa25edb0cad60d6ecade1cd3833c80612cca68c7883c4d20c8ca4f4a",
+    "versioned.mbt": "12ba4176bde8eaa2cdc4ee83ea6f888ec02e9501696c9f4bf22a19f863b47134"
+  },
+  "limits": [
+    "positive real references",
+    "well-conditioned randomized matrices",
+    "pointwise spectral diagnostics, not broadband causality",
+    "mixed-mode descriptors preserved, no mixed-mode conversion"
+  ]
+}

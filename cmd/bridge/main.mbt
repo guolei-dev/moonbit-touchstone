@@ -40,9 +40,104 @@ fn read_document(
   key : String,
 ) -> @lib.Document raise {
   match o.get(key) {
-    Some(j) => @lib.parse(text, ports=@json.from_json(j))
+    Some(j) => @lib.parse(text, ports=integer(j, key))
     None => @lib.parse(text)
   }
+}
+
+///|
+// Core FromJson[Int] truncates fractions; CLI indices/budgets must not do so.
+fn integer(value : Json, key : String) -> Int raise {
+  let n : Double = @json.from_json(value)
+  if n.is_nan() ||
+    n.is_inf() ||
+    n.floor() != n ||
+    n < -2147483648.0 ||
+    n > 2147483647.0 {
+    raise Failure(key + " must be an exact Int32 integer")
+  }
+  n.to_int()
+}
+
+///|
+fn required_int(o : Map[String, Json], key : String) -> Int raise {
+  integer(required(o, key), key)
+}
+
+///|
+fn optional_int(
+  o : Map[String, Json],
+  key : String,
+  fallback : Int,
+) -> Int raise {
+  match o.get(key) {
+    Some(j) => integer(j, key)
+    None => fallback
+  }
+}
+
+///|
+fn bound(o : Map[String, Json], key : String) -> Double? raise {
+  match o.get(key) {
+    Some(j) => Some(@json.from_json(j))
+    None => None
+  }
+}
+
+///|
+fn band_report(
+  net : @lib.Network,
+  options : Map[String, Json],
+) -> @lib.BandReport raise {
+  for key in options.keys() {
+    if !(key == "command" ||
+      key == "ports" ||
+      key == "limits" ||
+      key == "max_details") {
+      raise Failure("unknown band check option: " + key)
+    }
+  }
+  let items : Array[Json] = required(options, "limits")
+  if items.is_empty() || items.length() > 256 {
+    raise Failure("band check requires 1..256 rules")
+  }
+  let limits = items.map(item => {
+    let o = match item {
+      Object(o) => o
+      _ => raise Failure("each band rule must be an object")
+    }
+    // A misspelled bound must not silently disable a requested check.
+    for key in o.keys() {
+      if !(key == "metric" ||
+        key == "start_hz" ||
+        key == "end_hz" ||
+        key == "input" ||
+        key == "output" ||
+        key == "minimum" ||
+        key == "maximum") {
+        raise Failure("unknown band rule option: " + key)
+      }
+    }
+    let name : String = required(o, "metric")
+    let metric : @lib.BandMetric = match name {
+      "reflection_magnitude" => ReflectionMagnitude
+      "transmission_magnitude" => TransmissionMagnitude
+      "return_loss_db" => ReturnLossDb
+      "insertion_loss_db" => InsertionLossDb
+      "vswr" => Vswr
+      _ => raise Failure("unknown band metric: " + name)
+    }
+    @lib.band_limit(
+      metric,
+      required(o, "start_hz"),
+      required(o, "end_hz"),
+      input=required_int(o, "input"),
+      output=required_int(o, "output"),
+      minimum?=bound(o, "minimum"),
+      maximum?=bound(o, "maximum"),
+    )
+  })
+  net.check_bands(limits, max_details=optional_int(options, "max_details", 256))
 }
 
 ///|
@@ -103,19 +198,30 @@ fn execute(
     "metrics" =>
       doc
       .network_only()
-      .metrics(required(o, "output"), required(o, "input"))
+      .metrics(required_int(o, "output"), required_int(o, "input"))
       .to_json()
     "delay" =>
       doc
       .network_only()
-      .group_delay(required(o, "output"), required(o, "input"))
+      .group_delay(required_int(o, "output"), required_int(o, "input"))
       .to_json()
+    "band-check" => band_report(doc.network_only(), o).to_json()
+    "band-csv" => {
+      let report = band_report(doc.network_only(), o)
+      {
+        "text": report.issues_csv().to_json(),
+        "status": report.status.to_json(),
+      }
+    }
     _ => {
       let net = doc.network_only()
       let out = match command {
         "convert" => net.convert(required(o, "parameter"))
         "renormalize" => net.renormalize(required(o, "reference_ohms"))
-        "select" => net.select_ports(required(o, "selection"))
+        "select" => {
+          let selection : Array[Json] = required(o, "selection")
+          net.select_ports(selection.map(j => integer(j, "selection")))
+        }
         "interpolate" => net.interpolate(required(o, "frequency_hz"))
         "cascade" =>
           net.cascade(read_document(right, o, "right_ports").network_only())

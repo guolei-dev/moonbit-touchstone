@@ -4,24 +4,28 @@ import {run} from '../_build/js/release/build/cmd/bridge/bridge.js';
 
 const usage = `Usage: node tools/touchstone.mjs COMMAND INPUT [OPTIONS-JSON] [OUTPUT]
 Commands: inspect validate dump normalize legacy convert renormalize select
-          interpolate cascade deembed diagnostics metrics delay
+          interpolate cascade deembed diagnostics metrics delay band-check band-csv
 Legacy INPUT.sNp supplies its port count; otherwise OPTIONS needs "ports".
 Options: parameter, reference_ohms, selection, frequency_hz, input/output (ports),
          tolerance, format, unit, left_file/right_file (fixtures).
+Band options: limits (1..256 rules), max_details (global issue budget).
+OPTIONS-JSON may be @path/to/options.json (ASCII, <=1 MB).
+Band exits: 0 sampled pass, 3 fail, 4 inconclusive; all input/IO errors: 2.
 Output files are created exclusively: existing files are never overwritten.
 Reports print JSON; file transformations print Touchstone if OUTPUT is absent.`;
 
-function read(file) {
+function read(file, maxBytes=64_000_000) {
   // Open before fstat to avoid path-swap races; bound allocation and reject
   // non-ASCII bytes instead of silently replacing them during UTF-8 decoding.
   const fd = fs.openSync(file, 'r');
   try {
     const stat = fs.fstatSync(fd);
-    if (!stat.isFile() || stat.size > 64_000_000) throw new Error('input must be a file <=64 MB');
+    if (!stat.isFile() || stat.size > maxBytes) throw new Error(`input must be a file <=${maxBytes} bytes`);
     const data = Buffer.alloc(stat.size + 1);
     let size = 0, count;
     while (size < data.length && (count = fs.readSync(fd, data, size, data.length-size, null))) size += count;
     if (size > stat.size) throw new Error('input grew while reading; retry a stable file');
+    if (size < stat.size) throw new Error('input shrank while reading; retry a stable file');
     for (let i=0;i<size;i++) if (data[i]>127) throw new Error('Touchstone input must be ASCII');
     return data.subarray(0,size).toString('ascii');
   } finally { fs.closeSync(fd); }
@@ -37,7 +41,8 @@ try {
   if (args.length===1 && ['--help','-h'].includes(args[0])) { console.log(usage); }
   else {
     if (args.length<2 || args.length>4) throw new Error(usage);
-    const [command, input, optionsText='{}', output] = args;
+    const [command, input, optionsArg='{}', output] = args;
+    const optionsText=optionsArg.startsWith('@') ? read(optionsArg.slice(1),1_000_000) : optionsArg;
     if (optionsText.length>1_000_000) throw new Error('options too large');
     const options = JSON.parse(optionsText);
     if (!options || typeof options!=='object' || Array.isArray(options)) throw new Error('options must be an object');
@@ -57,6 +62,9 @@ try {
     const content = result && typeof result.text==='string' ? result.text : JSON.stringify(result,null,2)+'\n';
     if (output!==undefined) fs.writeFileSync(output,content,{encoding:'utf8',flag:'wx'});
     else process.stdout.write(content);
+    if (command==='band-check' || command==='band-csv') {
+      process.exitCode = result.status==='fail' ? 3 : result.status==='inconclusive' ? 4 : 0;
+    }
   }
 } catch (error) {
   console.error(`touchstone: ${error.message}`);

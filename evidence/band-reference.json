@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "python": "3.14.4",
+  "numpy": "2.5.3",
+  "scikit_rf": "2.1.0",
+  "matrix_cases": 104,
+  "checks": 128,
+  "cli_checks": 17,
+  "seconds": 7.794475200000306,
+  "measurements": [
+    {
+      "points": 1000,
+      "rules": 5,
+      "details": 8,
+      "roundtrip_seconds": 0.00652289999925415
+    },
+    {
+      "points": 10000,
+      "rules": 5,
+      "details": 8,
+      "roundtrip_seconds": 0.05079299999852083
+    }
+  ],
+  "scope": "Synthetic sampled-frequency checks; not continuous band or physical certification."
+}

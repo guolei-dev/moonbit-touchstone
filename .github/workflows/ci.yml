@@ -25,3 +25,6 @@ jobs:
       - run: node tools/check-cli.mjs
       - run: python -m pip install -r tools/requirements.txt
       - run: python tools/verify-reference.py
+      - run: python tools/verify-bands.py
+      - run: moon run examples/band_check --target js
+      - run: moon run examples/band_check --target wasm-gc
