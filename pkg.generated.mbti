@@ -33,6 +33,14 @@ pub fn Complex::scale(Self, Double) -> Self
 pub fn Complex::sub(Self, Self) -> Self
 pub fn Complex::to_json(Self) -> Json
 
+pub(all) struct Diagnostic {
+  frequency_hz : Double
+  reciprocity_error : Double
+  reciprocal : Bool
+  passivity : String
+} derive(ToJson)
+pub fn Diagnostic::to_json(Self) -> Json
+
 pub struct Document {
   // private fields
 }
@@ -50,9 +58,12 @@ pub struct Network {
 pub fn Network::cascade(Self, Self) -> Self raise
 pub fn Network::convert(Self, String) -> Self raise
 pub fn Network::deembed(Self, Self, Self) -> Self raise
+pub fn Network::diagnostics(Self, tolerance? : Double) -> Array[Diagnostic] raise
 pub fn Network::frequency_hz(Self) -> Array[Double]
+pub fn Network::group_delay(Self, Int, Int) -> Array[Double] raise
 pub fn Network::interpolate(Self, Array[Double]) -> Self raise
 pub fn Network::matrix(Self, Int) -> Array[Complex] raise
+pub fn Network::metrics(Self, Int, Int) -> Array[SignalMetric] raise
 pub fn Network::parameter(Self) -> String
 pub fn Network::ports(Self) -> Int
 pub fn Network::reference_ohms(Self) -> Array[Double]
@@ -67,6 +78,19 @@ pub(all) struct NoisePoint {
   resistance_ohms : Double
 } derive(ToJson)
 pub fn NoisePoint::to_json(Self) -> Json
+
+pub(all) struct SignalMetric {
+  frequency_hz : Double
+  reflection_magnitude : Double
+  transmission_magnitude : Double
+  return_loss_db : Double?
+  return_loss_infinite : Bool
+  insertion_loss_db : Double?
+  insertion_loss_infinite : Bool
+  vswr : Double?
+  vswr_state : String
+} derive(ToJson)
+pub fn SignalMetric::to_json(Self) -> Json
 
 // Type aliases
 
