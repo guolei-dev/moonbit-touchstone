@@ -35,6 +35,21 @@ pub struct BandLimit {
 }
 
 ///|
+fn validate_band_domain(
+  start_hz : Double,
+  end_hz : Double,
+  input : Int,
+  output : Int,
+) -> Unit raise {
+  if !finite(start_hz) || !finite(end_hz) || start_hz < 0.0 || end_hz < start_hz {
+    raise Failure("band edges must be finite with 0 <= start_hz <= end_hz")
+  }
+  if input < 0 || input >= 32 || output < 0 || output >= 32 {
+    raise Failure("band ports must be zero-based indices in 0..31")
+  }
+}
+
+///|
 /// At least one bound is required. Equal frequency edges permit a single-point
 /// check. Port existence is additionally checked against the target network.
 pub fn band_limit(
@@ -46,12 +61,7 @@ pub fn band_limit(
   minimum? : Double,
   maximum? : Double,
 ) -> BandLimit raise {
-  if !finite(start_hz) || !finite(end_hz) || start_hz < 0.0 || end_hz < start_hz {
-    raise Failure("band edges must be finite with 0 <= start_hz <= end_hz")
-  }
-  if input < 0 || input >= 32 || output < 0 || output >= 32 {
-    raise Failure("band ports must be zero-based indices in 0..31")
-  }
+  validate_band_domain(start_hz, end_hz, input, output)
   if minimum is None && maximum is None {
     raise Failure("band rule requires a minimum or maximum")
   }

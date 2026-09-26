@@ -1,0 +1,115 @@
+{
+  "recordedAt": "2026-09-26T18:26:21.436797+00:00",
+  "version": "0.2.0",
+  "base": "97de6c18f00c0b56ab43ca994f83e7d3c89e6172",
+  "host": "Windows",
+  "toolchain": "0.10.12+1634b282e",
+  "node": "24.11.0",
+  "remoteCI": false,
+  "checksSource": "Compact receipt transcribed from actual command outputs in current task",
+  "checks": {
+    "moon fmt / fmt --check": {
+      "exit": 0
+    },
+    "moon info": {
+      "exit": 0
+    },
+    "moon check --target all": {
+      "exit": 0
+    },
+    "moon build --target js --release": {
+      "exit": 0
+    },
+    "moon test --target js": {
+      "exit": 0,
+      "passed": 25
+    },
+    "moon test --target wasm-gc": {
+      "exit": 0,
+      "passed": 25
+    },
+    "node tools/check-cli.mjs": {
+      "exit": 0,
+      "checks": 14
+    },
+    "python tools/verify-ripple.py": {
+      "exit": 0,
+      "cases": 173,
+      "rejects": 8,
+      "cli": 4
+    },
+    "python tools/verify-bands.py": {
+      "exit": 0,
+      "cases": 104,
+      "checks": 128,
+      "cli": 17
+    },
+    "python tools/verify-johanson.py PUBLIC_SAMPLE": {
+      "exit": 0,
+      "points": 1551,
+      "complexValues": 6204
+    }
+  },
+  "notRerun": [
+    "historical 538-case full conversion oracle",
+    "Linux/remote CI"
+  ],
+  "sourceSha256LF": {
+    ".moonbit-version": "e068cfc8c22d644016bdaed3c31f6fc281a3ef5047cc9ac0011ca4bd36eec6dd",
+    "PROPOSAL.md": "4ec0d4ae78eb2bdc06ceb85d41eaf610bcb814b01d8e1c21d8d9e560b7e4b581",
+    "THIRD-PARTY.md": "08a7dc6ccd8c48abee673a94c7b05c9fac024863fbad206525fa5a76ffd6105c",
+    "docs/PUBLIC-SAMPLE.md": "0160e2c92a33647321501e64c020a2feb9c41e02b7cf306e11c5e1ef36d9f303",
+    "ripple.mbt": "f0a2b65a8b6423a078c8e7a8e58ebac28564a6ab5955f45a4d2eb73cc9727585",
+    "ripple_test.mbt": "26a872e25f7187e510a8d0950660bd3049f3405e2f11bf6e946afc973b409246",
+    "tools/fetch-johanson.py": "7c511ef87fb117b8d4c5d9ddd8cd0472bcb856d001da2299f45901ed9452782f",
+    "tools/verify-johanson.py": "ec3a293b1154264ec31815f4675dd1f9f45894bb2af59fa43d3d103e0e2bbae7",
+    "tools/verify-ripple.py": "735e51611572659a32cd08c960e399003dd469fe6e9aceb2c135ec3997b76c60",
+    ".gitattributes": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+    ".github/workflows/ci.yml": "366bb55f3e922ef375b47e8baea39f17814170fb20b42e180f5d47850fc70a55",
+    ".gitignore": "982f7b215e553653fc1503cab82d184a29854a12cb183bb9b68b99563a6d9eaa",
+    "AGENTS.md": "97847f1fb5f35656cbedc28b49d96ffb1f48e6719f52621f773a79a1f993f01f",
+    "LICENSE": "42a0e340c74e58e0ce80787e849b1d1c8d4e7c4346a9ceece672959b7ddbf7d0",
+    "README.md": "ed93ac59f1efe50e66dee2b51ffb73d02dc837a496589ddb949239b514185353",
+    "REVIEW.md": "5c64fa9ef139869cefadac041e7bf0663f9cf1439cc44139e46bd6ed6d8961fd",
+    "analysis.mbt": "c67936328db5fbbe0d0ab4098697003908ee41a8422c3c7286503827bae56dfd",
+    "analysis_test.mbt": "11947393626dc6100fca08177486573e37aef8c7694fe8eeb3da9c7d67bdb786",
+    "bands.mbt": "58d9149f83da41b491fca93145e94cdb70d2fee2927c4e660ec1d4c8b7c5a9f8",
+    "bands_test.mbt": "55477b23457f03db1cdb5cb70a73bf2907e64ed1abf093128e5bae9e037ec185",
+    "cascade.mbt": "6dc09bd7f21b7eaa004b7891cc8f23a24dee9c6b88aafb90583ed151caebdefb",
+    "cmd/bridge/entry.mbt": "707731f6d55f8795e9fd5ae849230f5505042484d3dd0705b0e8916a200d69e0",
+    "cmd/bridge/main.mbt": "1297dd94358bf3b8e642968d61da5713815709e67ba29f49a615ef4c483d5bf9",
+    "cmd/bridge/moon.pkg": "ffff55de311f43a8e49ec540385ef20d2bbe876eb1c88e2429c2da5ec476568c",
+    "complex.mbt": "3147d7d3ffc973367065ec9c7c57b0add94301d805f172519dc35caa25e0fb80",
+    "conversion.mbt": "60d75c42717700259a149c48c8300e7f3efec793dd514bd670a0e8a6658eb79d",
+    "core_test.mbt": "ddbc73bcadfc959b958dbeb01e82e7633ac94d40bd682d73b62d77d9cdb0291f",
+    "docs/BANDS.md": "11a5ed80f76dba78483f0a896261e186b73d90778b40223f5f34fb073e34b339",
+    "docs/PROGRESS.md": "503dc732cc6d593637e31487ab9aaaa69811aac25b00ad96777de29b63891384",
+    "docs/SCOPE.md": "95060ff0b924c7bebb4f782d98296610ff6d90687ff9f83a336837d37b4f0c21",
+    "docs/SOURCES.md": "80d6d8e20f5e320770a8f16e4f9da8e39b8b434556543b9608b50c910c896db6",
+    "docs/TESTING.md": "28f85ad04dcad3e0e218f25819f10d754777a46e4c94bdc92c42430b3f5f77c4",
+    "document.mbt": "032f5b3064d9f2b9d9939c4c09c3f158269d89a87b4399268561fbfdb509b2b7",
+    "document_test.mbt": "a85fa04716549a9485decf5890ac139766fc1109bd9108f4d3f3dcc2b66b80b1",
+    "examples/attenuator.s2p": "4bcf9b003e8764d2386347770a11013bfba69edebcb8a2ff832e6871a0618952",
+    "examples/band-limits.json": "e365efe40de4cfaaf3a58a4f3b72b5800af179b639c8d780155ae639f4d39d83",
+    "examples/band_check/main.mbt": "343cc363b26d864eeb015fd599c2408c70b278aa7256195e35df337daafa50aa",
+    "examples/band_check/moon.pkg": "2be99c30706dbccd36d1acf8a42465899317a9bd0a52b2360ee223ca8ece08b5",
+    "examples/band_check/pkg.generated.mbti": "a38cb0fb98254c1ee74996c7f22a8834b73735f122fb68b03df0ad2772f939d7",
+    "legacy.mbt": "83c44a54bc3d06a36b12aeeffa1b22fe8813517cbcc3a714d1a7c06b8bc8f334",
+    "legacy_test.mbt": "d41f8402e21b84fe3728a1afd40902ee73e11de07ccdd6db80a9f6965b6f3359",
+    "line_endings_test.mbt": "48e7fc6a73d38990357b536e2543a93986859e34f379a7922ac65280c4517896",
+    "matrix.mbt": "84d0ce5fa77bb110a8d8994ce3e94de7e4e31a4aaed99baf174deb3504890143",
+    "moon.mod": "0e09422b29d83f71e32fefab464928ff72cea684fc86ab0d397c43077aabc2b2",
+    "moon.pkg": "1fa45e931ee41a48ebdd86b97b9298a40a2877f97333fb5b66f3a28986e6c106",
+    "network.mbt": "669d467218d02f9aeffc7d5318f017c81fd067cabc12f880bd260629f011e83c",
+    "operations_test.mbt": "9201652cf318aee95fe471aae8778ce87338a74a607780c75b6b163470a98109",
+    "pkg.generated.mbti": "df857ac90c9bf5c39d4c66084ee43830ab079d4bf959db7cc3874c7c1a0a9324",
+    "text.mbt": "e40c2c9a23e4aa6c7c7ff305b75ff3874876241b4c87b72ae7054637d864b40b",
+    "tools/check-cli.mjs": "9b7aae8641bc97e9f4113941fa8666ce47a731119d66348c9d735205b3bba6c4",
+    "tools/oracle-host.mjs": "d10dae271bf98caeda247fbee8a45170607febdefd1728fd3030ce1945ddbd29",
+    "tools/requirements.txt": "dc401560fab55d8431bb3230287c7d4cd73247d2aea30baad67420b48aefdd74",
+    "tools/touchstone.mjs": "411eba941abbb8f55170f6d058e470d221e7f0867d115dc6c04ba58cc3cb6029",
+    "tools/verify-bands.py": "1edc84419b15f65ea1a84f186b208df4c64e0763fbe1145b81c3abdf5b6529cc",
+    "tools/verify-reference.py": "8efac8d0aa25edb0cad60d6ecade1cd3833c80612cca68c7883c4d20c8ca4f4a",
+    "versioned.mbt": "12ba4176bde8eaa2cdc4ee83ea6f888ec02e9501696c9f4bf22a19f863b47134"
+  }
+}

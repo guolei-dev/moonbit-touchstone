@@ -1,0 +1,9 @@
+{
+  "reference": "NumPy/scikit-rf independent peak-to-peak S dB",
+  "numpy": "2.5.3",
+  "scikit_rf": "2.1.0",
+  "synthetic_cases": 173,
+  "rejected_options": 8,
+  "cli_exit_checks": 4,
+  "passed": true
+}

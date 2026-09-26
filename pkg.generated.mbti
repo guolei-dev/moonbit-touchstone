@@ -120,6 +120,7 @@ pub struct Network {
 }
 pub fn Network::cascade(Self, Self) -> Self raise
 pub fn Network::check_bands(Self, Array[BandLimit], max_details? : Int) -> BandReport raise
+pub fn Network::check_ripple(Self, Double, Double, input~ : Int, output~ : Int, maximum_ripple_db~ : Double) -> RippleReport raise
 pub fn Network::convert(Self, String) -> Self raise
 pub fn Network::deembed(Self, Self, Self) -> Self raise
 pub fn Network::diagnostics(Self, tolerance? : Double) -> Array[Diagnostic] raise
@@ -142,6 +143,26 @@ pub(all) struct NoisePoint {
   resistance_ohms : Double
 } derive(ToJson)
 pub fn NoisePoint::to_json(Self) -> Json
+
+pub struct RippleReport {
+  scope : String
+  status : String
+  start_hz : Double
+  end_hz : Double
+  input : Int
+  output : Int
+  maximum_ripple_db : Double
+  sample_count : Int
+  range_covered : Bool
+  start_sampled : Bool
+  end_sampled : Bool
+  ripple_db : Double?
+  ripple_state : String
+  lowest_loss : BandObservation?
+  highest_loss : BandObservation?
+}
+pub fn RippleReport::to_json(Self) -> Json
+pub impl ToJson for RippleReport
 
 pub(all) struct SignalMetric {
   frequency_hz : Double

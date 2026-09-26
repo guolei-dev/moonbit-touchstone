@@ -1,0 +1,228 @@
+{
+  "source": "https://www.johansontechnology.com/docs/1886/5500BP41A0665_sT2aflU.s2p",
+  "sha256": "404804182b54e3c37d4438b9b685ddb16d264768c8f1368ddd14f494d55310e6",
+  "bytes": 201833,
+  "measurement_date_from_header": "2020-02-12",
+  "reference_datasheet_revision": "Rev 2.0, copyright 2025",
+  "instrument_port_mapping": {
+    "logical_0": "instrument port 1",
+    "logical_1": "instrument port 4"
+  },
+  "points": 1551,
+  "complex_values_compared": 6204,
+  "maximum_complex_error": 8.886119947416683e-16,
+  "reference": {
+    "scikit_rf": "2.1.0",
+    "numpy": "2.5.3"
+  },
+  "band_results": [
+    {
+      "metric": "insertion_loss_db",
+      "start_hz": 5170000000,
+      "end_hz": 5835000000,
+      "input": 0,
+      "output": 1,
+      "minimum": null,
+      "maximum": 2.5,
+      "status": "pass",
+      "range_covered": true,
+      "start_sampled": true,
+      "end_sampled": false,
+      "sample_count": 67,
+      "failed_count": 0,
+      "undefined_count": 0,
+      "lowest": {
+        "point": 467,
+        "frequency_hz": 5170000000,
+        "value": 0.8103996999999994,
+        "state": "finite"
+      },
+      "highest": {
+        "point": 533,
+        "frequency_hz": 5830000000,
+        "value": 1.6548739999999995,
+        "state": "finite"
+      },
+      "issues_truncated": false
+    },
+    {
+      "metric": "return_loss_db",
+      "start_hz": 5170000000,
+      "end_hz": 5835000000,
+      "input": 0,
+      "output": 0,
+      "minimum": 9.5,
+      "maximum": null,
+      "status": "pass",
+      "range_covered": true,
+      "start_sampled": true,
+      "end_sampled": false,
+      "sample_count": 67,
+      "failed_count": 0,
+      "undefined_count": 0,
+      "lowest": {
+        "point": 482,
+        "frequency_hz": 5320000000,
+        "value": 12.67463,
+        "state": "finite"
+      },
+      "highest": {
+        "point": 533,
+        "frequency_hz": 5830000000,
+        "value": 31.964,
+        "state": "finite"
+      },
+      "issues_truncated": false
+    },
+    {
+      "metric": "return_loss_db",
+      "start_hz": 5170000000,
+      "end_hz": 5835000000,
+      "input": 1,
+      "output": 1,
+      "minimum": 9.5,
+      "maximum": null,
+      "status": "pass",
+      "range_covered": true,
+      "start_sampled": true,
+      "end_sampled": false,
+      "sample_count": 67,
+      "failed_count": 0,
+      "undefined_count": 0,
+      "lowest": {
+        "point": 482,
+        "frequency_hz": 5320000000,
+        "value": 12.399639999999998,
+        "state": "finite"
+      },
+      "highest": {
+        "point": 528,
+        "frequency_hz": 5780000000,
+        "value": 27.993990000000004,
+        "state": "finite"
+      },
+      "issues_truncated": false
+    },
+    {
+      "metric": "insertion_loss_db",
+      "start_hz": 2400000000,
+      "end_hz": 2500000000,
+      "input": 0,
+      "output": 1,
+      "minimum": 25,
+      "maximum": null,
+      "status": "pass",
+      "range_covered": true,
+      "start_sampled": true,
+      "end_sampled": true,
+      "sample_count": 11,
+      "failed_count": 0,
+      "undefined_count": 0,
+      "lowest": {
+        "point": 200,
+        "frequency_hz": 2500000000,
+        "value": 34.7306,
+        "state": "finite"
+      },
+      "highest": {
+        "point": 190,
+        "frequency_hz": 2400000000,
+        "value": 35.40531,
+        "state": "finite"
+      },
+      "issues_truncated": false
+    },
+    {
+      "metric": "insertion_loss_db",
+      "start_hz": 6095000000,
+      "end_hz": 7125000000,
+      "input": 0,
+      "output": 1,
+      "minimum": 30,
+      "maximum": null,
+      "status": "pass",
+      "range_covered": true,
+      "start_sampled": false,
+      "end_sampled": false,
+      "sample_count": 103,
+      "failed_count": 0,
+      "undefined_count": 0,
+      "lowest": {
+        "point": 560,
+        "frequency_hz": 6100000000,
+        "value": 33.54527,
+        "state": "finite"
+      },
+      "highest": {
+        "point": 644,
+        "frequency_hz": 6940000000,
+        "value": 49.80902,
+        "state": "finite"
+      },
+      "issues_truncated": false
+    },
+    {
+      "metric": "insertion_loss_db",
+      "start_hz": 10340000000,
+      "end_hz": 11670000000,
+      "input": 0,
+      "output": 1,
+      "minimum": 20,
+      "maximum": null,
+      "status": "pass",
+      "range_covered": true,
+      "start_sampled": true,
+      "end_sampled": true,
+      "sample_count": 134,
+      "failed_count": 0,
+      "undefined_count": 0,
+      "lowest": {
+        "point": 986,
+        "frequency_hz": 10360000000,
+        "value": 35.48479,
+        "state": "finite"
+      },
+      "highest": {
+        "point": 1117,
+        "frequency_hz": 11670000000,
+        "value": 43.29729999999999,
+        "state": "finite"
+      },
+      "issues_truncated": false
+    }
+  ],
+  "ripple": {
+    "scope": "sampled_points_only",
+    "status": "pass",
+    "start_hz": 5170000000,
+    "end_hz": 5835000000,
+    "input": 0,
+    "output": 1,
+    "maximum_ripple_db": 2,
+    "sample_count": 67,
+    "range_covered": true,
+    "start_sampled": true,
+    "end_sampled": false,
+    "ripple_db": 0.8444743000000001,
+    "ripple_state": "finite",
+    "lowest_loss": {
+      "point": 467,
+      "frequency_hz": 5170000000,
+      "value": 0.8103996999999994,
+      "state": "finite"
+    },
+    "highest_loss": {
+      "point": 533,
+      "frequency_hz": 5830000000,
+      "value": 1.6548739999999995,
+      "state": "finite"
+    }
+  },
+  "independent_checks_passed": true,
+  "limits": [
+    "sampled points only; no interpolation or continuous-band proof",
+    "2020 example and 2025 datasheet are different dated artifacts",
+    "does not establish temperature, evaluation-board or production-device compliance",
+    "public sample is not customer adoption; source is not bundled or relicensed"
+  ]
+}

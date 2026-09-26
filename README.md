@@ -1,5 +1,7 @@
 # MoonTouchstone
 
+当前本地版本 0.2.0，作为旧象棋题目的替换候选。[申报正文](PROPOSAL.md)和[厂家公开 S2P 实证](docs/PUBLIC-SAMPLE.md)说明用途、上游关系与尚未完成的公开交付。新增纯 MoonBit 通带峰峰插损判定，不以合成样例冒充用户采用。
+
 评审/首次使用请先看[实际任务、替代方案与可运行证据](REVIEW.md)：导入Touchstone，按适用条件进行阻抗变换、级联或去嵌入，再对指定频段的采样点计算插损、回损等指标，输出超限位置或无法判定的原因。
 
 MoonBit 原生 Touchstone 文件库与小规模 RF 网络数据工具。格式解析、SI 归一化、复数矩阵、参数转换和 RF 分析全部由 MoonBit 实现；Node 仅承担 CLI 文件读写和参数传递。MIT 许可，AI 辅助开发，保留真实 Git 作者与开发过程。
@@ -18,7 +20,7 @@ MoonBit 原生 Touchstone 文件库与小规模 RF 网络数据工具。格式�
 
 ## 本地运行
 
-需要 MoonBit 工具链和 Node.js 24。已实跑 Windows、moon 0.1.20260920 / moonc 0.10.14，JS 与 Wasm-GC；其余系统的 CI 仅配置，尚未远程执行。库本身不依赖 Python 或 scikit-rf。
+需要 MoonBit 工具链和 Node.js 24。本次在 Windows 使用 .moonbit-version 固定的 moonc 0.10.12+1634b282e / moon 0.1.20260904，JS 与 Wasm-GC 实跑；历史 0.10.14 记录另存。CI 固定同一版本并初始化 registry，目前仅配置 Ubuntu，尚未远程执行。库本身不依赖 Python 或 scikit-rf。
 
 ```sh
 moon check --target all
@@ -51,6 +53,7 @@ CLI 形式为 `COMMAND INPUT [OPTIONS-JSON] [OUTPUT]`，选项也可用 `@path/t
 | diagnostics | 可选 `tolerance`，默认 1e-9 |
 | metrics / delay | `input`、`output` 零起点端口 |
 | band-check / band-csv | `limits` 规则数组；`max_details` 全局明细额度；[完整指南](docs/BANDS.md) |
+| ripple-check | `start_hz`、`end_hz`、`input`、`output`、`maximum_ripple_db`；[公开数据与聚合语义](docs/PUBLIC-SAMPLE.md) |
 
 `examples/band_check` 是不依赖 Node 文件宿主的纯 MoonBit 示例，可用 JS / Wasm-GC 运行。示例故意设置一条不通过的回波损耗要求，展示 JSON 与原始超限点 CSV；它正常执行并输出 `fail` 不代表测试失败。
 

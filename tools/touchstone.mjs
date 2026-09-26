@@ -4,7 +4,7 @@ import {run} from '../_build/js/release/build/cmd/bridge/bridge.js';
 
 const usage = `Usage: node tools/touchstone.mjs COMMAND INPUT [OPTIONS-JSON] [OUTPUT]
 Commands: inspect validate dump normalize legacy convert renormalize select
-          interpolate cascade deembed diagnostics metrics delay band-check band-csv
+          interpolate cascade deembed diagnostics metrics delay band-check band-csv ripple-check
 Legacy INPUT.sNp supplies its port count; otherwise OPTIONS needs "ports".
 Options: parameter, reference_ohms, selection, frequency_hz, input/output (ports),
          tolerance, format, unit, left_file/right_file (fixtures).
@@ -62,7 +62,7 @@ try {
     const content = result && typeof result.text==='string' ? result.text : JSON.stringify(result,null,2)+'\n';
     if (output!==undefined) fs.writeFileSync(output,content,{encoding:'utf8',flag:'wx'});
     else process.stdout.write(content);
-    if (command==='band-check' || command==='band-csv') {
+    if (command==='band-check' || command==='band-csv' || command==='ripple-check') {
       process.exitCode = result.status==='fail' ? 3 : result.status==='inconclusive' ? 4 : 0;
     }
   }

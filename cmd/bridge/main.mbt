@@ -205,6 +205,29 @@ fn execute(
       .network_only()
       .group_delay(required_int(o, "output"), required_int(o, "input"))
       .to_json()
+    "ripple-check" => {
+      for key in o.keys() {
+        if !(key == "command" ||
+          key == "ports" ||
+          key == "start_hz" ||
+          key == "end_hz" ||
+          key == "input" ||
+          key == "output" ||
+          key == "maximum_ripple_db") {
+          raise Failure("unknown ripple option: " + key)
+        }
+      }
+      doc
+      .network_only()
+      .check_ripple(
+        required(o, "start_hz"),
+        required(o, "end_hz"),
+        input=required_int(o, "input"),
+        output=required_int(o, "output"),
+        maximum_ripple_db=required(o, "maximum_ripple_db"),
+      )
+      .to_json()
+    }
     "band-check" => band_report(doc.network_only(), o).to_json()
     "band-csv" => {
       let report = band_report(doc.network_only(), o)
