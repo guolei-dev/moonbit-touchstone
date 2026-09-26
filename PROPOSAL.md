@@ -1,4 +1,4 @@
-# 申报候选：MoonTouchstone——MoonBit RF 网络数据变换与采样频段判定
+# MoonTouchstone——MoonBit RF 网络数据变换与采样频段判定
 
 本项目拟替换此前象棋选题。是否允许换题、正式作者账号和公开源码 URL 由团队与组委会确认；本地 `localreview/touchstone` 不是公开发布地址，不能直接填入报名表。
 

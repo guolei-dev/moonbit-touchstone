@@ -98,6 +98,8 @@ python tools/verify-bands.py
 
 验证工具许可证、参考范围和合成样例来源见 [SOURCES](docs/SOURCES.md)。
 
-新频段功能的当前源码绑定记录见 [bands-20260922.json](evidence/bands-20260922.json)；原 `reference.json` 保留为增强前的历史证据，不能用其旧散列证明新源码。
+0.1.x频段功能的历史源码绑定记录见 [bands-20260922.json](evidence/bands-20260922.json)；原 `reference.json` 保留为增强前的历史证据，不能用其旧散列证明新源码。
 
 查重刷新于 2026-09-22：Mooncakes `kw=touchstone` 与 GitHub `touchstone language:MoonBit` 均未命中，并检查公开网页索引；此结论限检索范围，不宣称全球不存在。
+
+0.2.0当前通带波动与厂商输入对照见 [reassessment-20260927/LOCAL-CHECKS.json](evidence/reassessment-20260927/LOCAL-CHECKS.json) 及 [PUBLIC-SAMPLE](docs/PUBLIC-SAMPLE.md)；旧bands回执不证明本轮新增代码。

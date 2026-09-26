@@ -18,5 +18,9 @@
   "currentEvidenceScope": "Old topic stopped; replacement manufacturer S-parameter sample, band/ripple checks and scikit-rf comparison",
   "topicChangeApproved": false,
   "publicRepositoryCreated": false,
-  "localModuleNameNeedsReview": true
+  "localModuleNameNeedsReview": true,
+  "useCase": "导入厂商S参数后进行网络变换及有限采样频段的阈值和波动检查",
+  "diff": "停止与wbgxiaosu/xiangqi重叠的旧引擎；scikit-rf已有成熟RF能力，增量为MoonBit可组合模型与频段判定",
+  "remainingRisk": "厂商数据不随包再分发；采样点结果不是连续频带保证、器件认证或真实设计采用；换题待办理",
+  "reviewDecision": "停用象棋，替换Touchstone"
 }
