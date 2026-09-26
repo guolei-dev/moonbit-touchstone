@@ -1,0 +1,22 @@
+{
+  "project": "touchstone",
+  "originalSubmission": "xiangqi",
+  "title": "MoonTouchstone——MoonBit RF 网络数据变换与采样频段判定",
+  "module": "localreview/touchstone",
+  "version": "0.2.0",
+  "repository": null,
+  "license": "MIT",
+  "status": "旧选题停用；本地替代完成核验，换题与公开待团队办理",
+  "acceptance": "not established",
+  "localChangesPublished": false,
+  "actualUsersClaimed": false,
+  "remoteCIRunByThisTask": false,
+  "currentValidation": "evidence/reassessment-20260927/LOCAL-CHECKS.json",
+  "currentEvidence": "evidence/reassessment-20260927/LOCAL-CHECKS.json",
+  "proposalLines": 11,
+  "metadataReviewedOn": "2026-09-27",
+  "currentEvidenceScope": "Old topic stopped; replacement manufacturer S-parameter sample, band/ripple checks and scikit-rf comparison",
+  "topicChangeApproved": false,
+  "publicRepositoryCreated": false,
+  "localModuleNameNeedsReview": true
+}
