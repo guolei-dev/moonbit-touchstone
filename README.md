@@ -6,7 +6,7 @@
 
 MoonBit 原生 Touchstone 文件库与小规模 RF 网络数据工具。格式解析、SI 归一化、复数矩阵、参数转换和 RF 分析全部由 MoonBit 实现；Node 仅承担 CLI 文件读写和参数传递。MIT 许可，AI 辅助开发，保留真实 Git 作者与开发过程。
 
-`localreview/touchstone` 是**本地开发命名空间，尚未发布**。本地完成不等于远程 CI 或正式比赛验收通过。固定开发范围见 [SCOPE](docs/SCOPE.md)，验证记录见 [TESTING](docs/TESTING.md)。
+`guolei-dev/touchstone` 是**本地开发命名空间，尚未发布**。本地完成不等于远程 CI 或正式比赛验收通过。固定开发范围见 [SCOPE](docs/SCOPE.md)，验证记录见 [TESTING](docs/TESTING.md)。
 
 ## 已有能力
 
@@ -120,4 +120,4 @@ moon package
 
 本地核验：JS/Wasm-GC 各 25 项测试、CLI/频段示例和独立 RF 公开数据核对通过。 `moon package` 已完成离线打包预检，它不等于已发布到 Mooncakes。
 
-公开交付（2026-09-28 核对）：尚无本项目正式公开仓库 URL 或 Mooncakes 版本；模块名 `localreview/touchstone` 是本地验证命名空间，正式发布前须改成对应账号的名称；换题资格、仓库、公开 CI 和首次发布均待团队办理，不能沿用旧题仓库链接。相关远端 CI 与赛事结果仍需以实际记录核对。项目许可见 [LICENSE](LICENSE)；如使用第三方材料，其来源和许可见仓内相应说明。
+公开交付（2026-09-28 核对）：尚无本项目正式公开仓库 URL 或 Mooncakes 版本；模块名 `guolei-dev/touchstone` 是本地验证命名空间，正式发布前须改成对应账号的名称；换题资格、仓库、公开 CI 和首次发布均待团队办理，不能沿用旧题仓库链接。相关远端 CI 与赛事结果仍需以实际记录核对。项目许可见 [LICENSE](LICENSE)；如使用第三方材料，其来源和许可见仓内相应说明。

@@ -41,5 +41,5 @@ moon run examples/band_check --target wasm-gc
 ## 交付状态
 
 本地实现、可运行示例和独立参考证据与公开发布是两回事。
-当前localreview命名空间仅本地使用；正式仓库、发布和申报由团队对接，本页不猜测账号/地址。
+模块命名空间为 guolei-dev/touchstone，与公开仓库及 Mooncakes 账号一致。
 仓库可匿名克隆、默认分支内容、对应SHA的CI和正式链接需在提交时核对；不能用个人主页或历史截图代替。

@@ -2,7 +2,7 @@
   "project": "touchstone",
   "originalSubmission": "xiangqi",
   "title": "MoonTouchstone——MoonBit RF 网络数据变换与采样频段判定",
-  "module": "localreview/touchstone",
+  "module": "guolei-dev/touchstone",
   "version": "0.2.0",
   "repository": null,
   "license": "MIT",

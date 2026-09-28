@@ -1,4 +1,4 @@
-name = "localreview/touchstone"
+name = "guolei-dev/touchstone"
 
 version = "0.2.0"
 
