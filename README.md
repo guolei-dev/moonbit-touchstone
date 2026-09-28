@@ -109,10 +109,10 @@ python tools/verify-bands.py
 核心实现使用 MoonBit；[固定编译器](.moonbit-version)为 `moonc 0.10.14+7d59c7ec9`。先按本文安装宿主依赖、运行 `moon update`，再从仓库根目录执行以下与 [CI](.github/workflows/ci.yml) 对齐的检查；可运行任务和适用边界见本文前面的示例与说明。
 
 ```sh
-moon check --target all
-moon test --target js
-moon test --target wasm-gc
-moon build --target js --release
+moon check --target all --deny-warn
+moon test --target js --deny-warn
+moon test --target wasm-gc --deny-warn
+moon build --target js --release --deny-warn
 moon package
 ```
 
