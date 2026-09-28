@@ -1,6 +1,12 @@
-# 可复现验证与边界
+# 工具链与独立参照验证
 
-## 当前 0.2.0 本地验证（2026-09-27）
+## 工具链固定版本更新（2026-09-28）
+
+已将 .moonbit-version 更新为 0.10.14+7d59c7ec9。格式检查、全目标 check、JS/Wasm-GC 测试（各25项）、release JS 构建、moon info、生成接口差异检查、Node CLI检查（14项）及 band-check 示例均通过，示例在 JS 和 Wasm-GC 上各运行一次。此次仅复核工具链固定版本，未重跑 NumPy/SciPy/scikit-rf 独立参照测试；相关外部结果仍由下方 2026-09-27 回执单独证明。
+
+## Prior verification details
+
+### 先前 0.2.0 本地验证（2026-09-27）
 
 Windows、moon 0.1.20260904 / moonc 0.10.12+1634b282e、Node 24.11.0。格式、接口、全部后端 check、release JS 构建通过；JS/Wasm-GC 各25块核心测试通过。新聚合逻辑复用频段选择和极值，故重跑受影响的 `verify-bands.py`：104场景、128检查、17 CLI检查通过；未无理由重跑原538场景矩阵对照。
 

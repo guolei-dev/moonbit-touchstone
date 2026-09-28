@@ -20,7 +20,7 @@ MoonBit 原生 Touchstone 文件库与小规模 RF 网络数据工具。格式�
 
 ## 本地运行
 
-需要 MoonBit 工具链和 Node.js 24。本次在 Windows 使用 .moonbit-version 固定的 moonc 0.10.12+1634b282e / moon 0.1.20260904，JS 与 Wasm-GC 实跑；历史 0.10.14 记录另存。CI 固定同一版本并初始化 registry，目前仅配置 Ubuntu，尚未远程执行。库本身不依赖 Python 或 scikit-rf。
+需要 MoonBit 工具链和 Node.js 24。2026-09-28 在 Windows 使用 .moonbit-version 固定的 moonc 0.10.14+7d59c7ec9 / moon 0.1.20260920，JS 与 Wasm-GC 检查、测试和示例均已通过。CI 固定同一版本并初始化 registry，目前仅配置 Ubuntu，尚未核实远程状态。库本身不依赖 Python 或 scikit-rf。
 
 ```sh
 moon check --target all
