@@ -3,10 +3,10 @@
   "originalSubmission": "xiangqi",
   "title": "MoonTouchstone——MoonBit RF 网络数据变换与采样频段判定",
   "module": "guolei-dev/touchstone",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": "https://github.com/guolei-dev/moonbit-touchstone",
   "license": "MIT",
-  "status": "已公开对应版号及成功 CI；本轮材料仅本地修订，赛事审核结果待核实；换题是否批准待核实",
+  "status": "本地 0.2.1 仅修复公开仓库元数据；尚未推送或发布，审核状态待核实",
   "acceptance": "not established",
   "localChangesPublished": false,
   "actualUsersClaimed": false,
@@ -30,5 +30,6 @@
   "observedRemoteCiConclusion": "success",
   "currentCoreDiffersFromObservedCi": false,
   "publishedCoreSourceComparedOn": "2026-09-29",
-  "publishedCoreSourceMatchesLocal": true
+  "publishedCoreSourceMatchesLocal": false,
+  "localMetadataChangeOnly": true
 }

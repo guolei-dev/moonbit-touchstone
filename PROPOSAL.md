@@ -1,6 +1,6 @@
 # MoonTouchstone——MoonBit RF 网络数据变换与采样频段判定
 
-本地模块 `guolei-dev/touchstone@0.2.0`，拟替换因与 `wbgxiaosu/xiangqi` 功能冲突而停用的象棋选题。公开仓库：https://github.com/guolei-dev/moonbit-touchstone。
+本地模块 `guolei-dev/touchstone@0.2.0`，拟替换因与 `wbgxiaosu/xiangqi` 功能冲突而停用的象棋选题。公开仓库：https://github.com/guolei-dev/moonbit-touchstone。 本地交付版 0.2.1 仅补全已存在公开仓库的包元数据地址，算法未改；尚未推送或发布，公开版仍为 0.2.0。
 
 ## RF 数据任务与 MoonBit 实现
 

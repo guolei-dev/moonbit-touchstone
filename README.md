@@ -1,6 +1,6 @@
 # MoonTouchstone
 
-项目仓库：[https://github.com/guolei-dev/moonbit-touchstone](https://github.com/guolei-dev/moonbit-touchstone)
+项目仓库：[https://github.com/guolei-dev/moonbit-touchstone](https://github.com/guolei-dev/moonbit-touchstone) 本地交付版 0.2.1 仅补全已存在公开仓库的包元数据地址，算法未改；尚未推送或发布，公开版仍为 0.2.0。
 
 当前本地版本 0.2.0，作为旧象棋题目的替换候选。[申报正文](PROPOSAL.md)和[厂家公开 S2P 实证](docs/PUBLIC-SAMPLE.md)说明用途、上游关系与公开交付边界。新增纯 MoonBit 通带峰峰插损判定，不以合成样例冒充用户采用。
 
