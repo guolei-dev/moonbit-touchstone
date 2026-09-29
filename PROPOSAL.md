@@ -1,6 +1,6 @@
 # MoonTouchstone——MoonBit RF 网络数据变换与采样频段判定
 
-本地模块 `guolei-dev/touchstone@0.2.0`，拟替换因与 `wbgxiaosu/xiangqi` 功能冲突而停用的象棋选题。正式项目仓库尚未公开；模块名不是 URL，账号归属和是否准许换题仍须按赛事流程核实。
+本地模块 `guolei-dev/touchstone@0.2.0`，拟替换因与 `wbgxiaosu/xiangqi` 功能冲突而停用的象棋选题。公开仓库：https://github.com/guolei-dev/moonbit-touchstone。
 
 ## RF 数据任务与 MoonBit 实现
 
@@ -16,4 +16,4 @@ Johanson 5500BP41A0665 的公开输入含 1551 个频点；与 scikit-rf/NumPy �
 
 本地支持 JS/Wasm-GC 核心，1–32 端口、正实参考阻抗和有界文件；不承诺完整连续频带、复杂参考阻抗、所有扩展或完整 RF 仿真。当前已实现版本 0.2.0，源代码、接口和本地回执可独立审阅。正式公开仓库、匿名克隆、远程 CI 和换题提交均尚未执行。
 
-**验收复现与交付状态（2026-09-28 本地）**：以 moonc 0.10.14+7d59c7ec9 通过 `--deny-warn` 检查、JS/Wasm-GC 测试和构建、最小样例和离线 `moon package`；同一代码在 Ubuntu-D 26.04 WSL2 全新解包后通过格式、接口生成、严格双后端检查及 Node 24.21.0 最小宿主入口；正式仓库、换题资格、远端 CI 和 Mooncakes 首发待办理。命令与能力边界见 [README](README.md)，自动检查见 [CI](.github/workflows/ci.yml)；本地通过不代表赛事审核通过。
+**验收复现与交付状态（2026-09-28 本地）**：以 moonc 0.10.14+7d59c7ec9 通过 `--deny-warn` 检查、JS/Wasm-GC 测试和构建、最小样例和离线 `moon package`；同一代码在 Ubuntu-D 26.04 WSL2 全新解包后通过格式、接口生成、严格双后端检查及 Node 24.21.0 最小宿主入口；公开仓库已上线、远端 CI（ubuntu-latest）通过、Mooncakes 已发布 0.2.0；换题资格与表单更新按赛事流程办理。命令与能力边界见 [README](README.md)，自动检查见 [CI](.github/workflows/ci.yml)；本地通过不代表赛事审核通过。
