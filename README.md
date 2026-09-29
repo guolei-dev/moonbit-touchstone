@@ -8,7 +8,7 @@
 
 MoonBit 原生 Touchstone 文件库与小规模 RF 网络数据工具。格式解析、SI 归一化、复数矩阵、参数转换和 RF 分析全部由 MoonBit 实现；Node 仅承担 CLI 文件读写和参数传递。MIT 许可，AI 辅助开发，保留真实 Git 作者与开发过程。
 
-`guolei-dev/touchstone@0.2.1` 已在 Mooncakes 发布。本地完成不等于远程 CI 或正式比赛验收通过。固定开发范围见 [SCOPE](docs/SCOPE.md)，验证记录见 [TESTING](docs/TESTING.md)。
+`guolei-dev/touchstone@0.2.0` 已在 Mooncakes 发布，本地 0.2.1 尚未发布。本地完成不等于远程 CI 或正式比赛验收通过。固定开发范围见 [SCOPE](docs/SCOPE.md)，验证记录见 [TESTING](docs/TESTING.md)。
 
 ## 已有能力
 
@@ -22,7 +22,7 @@ MoonBit 原生 Touchstone 文件库与小规模 RF 网络数据工具。格式�
 
 ## 本地运行
 
-需要 MoonBit 工具链和 Node.js 24。2026-09-28 在 Windows 使用 .moonbit-version 固定的 moonc 0.10.14+7d59c7ec9 / moon 0.1.20260920，JS 与 Wasm-GC 检查、测试和示例均已通过。CI 固定同一版本并初始化 registry，目前仅配置 Ubuntu，尚未核实远程状态。库本身不依赖 Python 或 scikit-rf。
+需要 MoonBit 工具链和 Node.js 24。2026-09-28 在 Windows 使用 .moonbit-version 固定的 moonc 0.10.14+7d59c7ec9 / moon 0.1.20260920，JS 与 Wasm-GC 检查、测试和示例均已通过。CI 固定同一版本并初始化 registry，目前配置 Ubuntu；公开 0.2.0 提交的 CI 已核对，本地 0.2.1 尚未推送。库本身不依赖 Python 或 scikit-rf。
 
 ```sh
 moon check --target all
