@@ -1,12 +1,14 @@
 # MoonTouchstone
 
-当前本地版本 0.2.0，作为旧象棋题目的替换候选。[申报正文](PROPOSAL.md)和[厂家公开 S2P 实证](docs/PUBLIC-SAMPLE.md)说明用途、上游关系与尚未完成的公开交付。新增纯 MoonBit 通带峰峰插损判定，不以合成样例冒充用户采用。
+项目仓库：[https://github.com/guolei-dev/moonbit-touchstone](https://github.com/guolei-dev/moonbit-touchstone)
+
+当前本地版本 0.2.0，作为旧象棋题目的替换候选。[申报正文](PROPOSAL.md)和[厂家公开 S2P 实证](docs/PUBLIC-SAMPLE.md)说明用途、上游关系与公开交付边界。新增纯 MoonBit 通带峰峰插损判定，不以合成样例冒充用户采用。
 
 评审/首次使用请先看[实际任务、替代方案与可运行证据](REVIEW.md)：导入Touchstone，按适用条件进行阻抗变换、级联或去嵌入，再对指定频段的采样点计算插损、回损等指标，输出超限位置或无法判定的原因。
 
 MoonBit 原生 Touchstone 文件库与小规模 RF 网络数据工具。格式解析、SI 归一化、复数矩阵、参数转换和 RF 分析全部由 MoonBit 实现；Node 仅承担 CLI 文件读写和参数传递。MIT 许可，AI 辅助开发，保留真实 Git 作者与开发过程。
 
-`guolei-dev/touchstone` 是**本地开发命名空间，尚未发布**。本地完成不等于远程 CI 或正式比赛验收通过。固定开发范围见 [SCOPE](docs/SCOPE.md)，验证记录见 [TESTING](docs/TESTING.md)。
+`guolei-dev/touchstone@0.2.0` 已在 Mooncakes 发布。本地完成不等于远程 CI 或正式比赛验收通过。固定开发范围见 [SCOPE](docs/SCOPE.md)，验证记录见 [TESTING](docs/TESTING.md)。
 
 ## 已有能力
 
@@ -120,4 +122,4 @@ moon package
 
 本地核验：JS/Wasm-GC 各 25 项测试、CLI/频段示例和独立 RF 公开数据核对通过。 `moon package` 已完成离线打包预检，它不等于已发布到 Mooncakes。
 
-公开交付（2026-09-28 核对）：尚无本项目正式公开仓库 URL 或 Mooncakes 版本；模块名 `guolei-dev/touchstone` 是拟交付账号形式的本地名称，正式发布前须核实账号归属和发布权限；换题资格、仓库、公开 CI 和首次发布均待申报人办理，不能沿用旧题仓库链接。相关远端 CI 与赛事结果仍需以实际记录核对。项目许可见 [LICENSE](LICENSE)；如使用第三方材料，其来源和许可见仓内相应说明。
+**公开状态（2026-09-29 核对）**：GitHub [公开仓库](https://github.com/guolei-dev/moonbit-touchstone)、[Mooncakes 0.2.0](https://mooncakes.io/docs/guolei-dev/touchstone@0.2.0) 已可访问；[CI 成功记录](https://github.com/guolei-dev/moonbit-touchstone/actions/runs/36561975947) 对应 `3723fef1db29`。本次材料更新尚未推送；该远端 CI 对应所列公开提交。报名表一致性及赛事审核结果尚未核实。

@@ -14,6 +14,6 @@ scikit-rf 和 Rust Touchstone 库已有成熟 RF 能力，本项目不主张算�
 
 Johanson 5500BP41A0665 的公开输入含 1551 个频点；与 scikit-rf/NumPy 独立比较 6204 个复数值、六组限值和通带波动。原始频点定位、零幅度、无采样和覆盖边界另有针对性检查。来源、复现命令和限制见 [PUBLIC-SAMPLE](docs/PUBLIC-SAMPLE.md)。这验证实际公开数据处理任务，不代表客户采用或厂商认证。
 
-本地支持 JS/Wasm-GC 核心，1–32 端口、正实参考阻抗和有界文件；不承诺完整连续频带、复杂参考阻抗、所有扩展或完整 RF 仿真。当前已实现版本 0.2.0，源代码、接口和本地回执可独立审阅。正式公开仓库、匿名克隆、远程 CI 和换题提交均尚未执行。
+本地支持 JS/Wasm-GC 核心，1–32 端口、正实参考阻抗和有界文件；不承诺完整连续频带、复杂参考阻抗、所有扩展或完整 RF 仿真。当前已实现版本 0.2.0，源代码、接口和本地回执可独立审阅。公开仓库、已有提交的成功 CI 与 Mooncakes 0.2.0 已核实，换题提交及赛事批准尚未核实。
 
-**验收复现与交付状态（2026-09-28 本地）**：以 moonc 0.10.14+7d59c7ec9 通过 `--deny-warn` 检查、JS/Wasm-GC 测试和构建、最小样例和离线 `moon package`；同一代码在 Ubuntu-D 26.04 WSL2 全新解包后通过格式、接口生成、严格双后端检查及 Node 24.21.0 最小宿主入口；公开仓库已上线、远端 CI（ubuntu-latest）通过、Mooncakes 已发布 0.2.0；换题资格与表单更新按赛事流程办理。命令与能力边界见 [README](README.md)，自动检查见 [CI](.github/workflows/ci.yml)；本地通过不代表赛事审核通过。
+**公开状态（2026-09-29 核对）**：GitHub [公开仓库](https://github.com/guolei-dev/moonbit-touchstone)、[Mooncakes 0.2.0](https://mooncakes.io/docs/guolei-dev/touchstone@0.2.0) 已可访问；[CI 成功记录](https://github.com/guolei-dev/moonbit-touchstone/actions/runs/36561975947) 对应 `3723fef1db29`。本次材料更新尚未推送；该远端 CI 对应所列公开提交。报名表一致性及赛事审核结果尚未核实。
